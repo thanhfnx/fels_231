@@ -63,3 +63,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+/E-Learning/Pods/*
+/E-Learning/E-Learning.xcworkspace
+/E-Learning/Podfile.lock
