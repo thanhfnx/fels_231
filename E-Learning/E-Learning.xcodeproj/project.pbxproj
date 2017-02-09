@@ -7,28 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9217B23B1E4C010E00744083 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92039FFB1E4BFFBD000481C5 /* LaunchScreen.storyboard */; };
+		9217B23C1E4C010E00744083 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92039FF91E4BFFA4000481C5 /* Main.storyboard */; };
+		9217B23D1E4C012800744083 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92039FFF1E4C002A000481C5 /* LoginViewController.swift */; };
+		9217B23E1E4C012800744083 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92039FFD1E4C0015000481C5 /* RegisterViewController.swift */; };
 		9221BA6C1E4AD03C00E26A28 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA6B1E4AD03C00E26A28 /* User.swift */; };
 		9221BA701E4AD1D400E26A28 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA6F1E4AD1D400E26A28 /* Category.swift */; };
 		9221BA721E4AD3CE00E26A28 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA711E4AD3CE00E26A28 /* Lesson.swift */; };
 		9221BA741E4AD51B00E26A28 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA731E4AD51B00E26A28 /* Word.swift */; };
 		9221BA761E4AD5BF00E26A28 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA751E4AD5BF00E26A28 /* Answer.swift */; };
+		925A70801E4C0ACF00B4AA02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A707F1E4C0ACF00B4AA02 /* Constants.swift */; };
+		925A70821E4C0CBB00B4AA02 /* DataValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A70811E4C0CBB00B4AA02 /* DataValidator.swift */; };
+		925A70861E4C1DD000B4AA02 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A70851E4C1DD000B4AA02 /* UIViewController+Extensions.swift */; };
+		925A70881E4C1DF600B4AA02 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A70871E4C1DF600B4AA02 /* UIView+Extensions.swift */; };
 		929C6BD01E4ACC2400B11086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C6BCF1E4ACC2400B11086 /* AppDelegate.swift */; };
-		929C6BD51E4ACC2400B11086 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929C6BD31E4ACC2400B11086 /* Main.storyboard */; };
 		929C6BD71E4ACC2400B11086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929C6BD61E4ACC2400B11086 /* Assets.xcassets */; };
-		929C6BDA1E4ACC2400B11086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929C6BD81E4ACC2400B11086 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92039FF91E4BFFA4000481C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		92039FFB1E4BFFBD000481C5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92039FFD1E4C0015000481C5 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		92039FFF1E4C002A000481C5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9221BA6B1E4AD03C00E26A28 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9221BA6F1E4AD1D400E26A28 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9221BA711E4AD3CE00E26A28 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		9221BA731E4AD51B00E26A28 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		9221BA751E4AD5BF00E26A28 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		925A707F1E4C0ACF00B4AA02 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		925A70811E4C0CBB00B4AA02 /* DataValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidator.swift; sourceTree = "<group>"; };
+		925A70851E4C1DD000B4AA02 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		925A70871E4C1DF600B4AA02 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		929C6BCC1E4ACC2400B11086 /* E-Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Learning.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		929C6BCF1E4ACC2400B11086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		929C6BD41E4ACC2400B11086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		929C6BD61E4ACC2400B11086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		929C6BD91E4ACC2400B11086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		929C6BDB1E4ACC2400B11086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92039FF81E4BFC29000481C5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				92039FFB1E4BFFBD000481C5 /* LaunchScreen.storyboard */,
+				92039FF91E4BFFA4000481C5 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		9221BA6A1E4ACE3D00E26A28 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +74,33 @@
 				9221BA751E4AD5BF00E26A28 /* Answer.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		92504CA61E4B03F300883440 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				92039FFF1E4C002A000481C5 /* LoginViewController.swift */,
+				92039FFD1E4C0015000481C5 /* RegisterViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		92504CAC1E4B1D8000883440 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				925A70851E4C1DD000B4AA02 /* UIViewController+Extensions.swift */,
+				925A70871E4C1DF600B4AA02 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		925A707C1E4C0AA400B4AA02 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				925A707F1E4C0ACF00B4AA02 /* Constants.swift */,
+				925A70811E4C0CBB00B4AA02 /* DataValidator.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		929C6BC31E4ACC2300B11086 = {
@@ -74,11 +122,13 @@
 		929C6BCE1E4ACC2400B11086 /* E-Learning */ = {
 			isa = PBXGroup;
 			children = (
+				925A707C1E4C0AA400B4AA02 /* Helpers */,
+				92039FF81E4BFC29000481C5 /* Storyboards */,
+				92504CAC1E4B1D8000883440 /* Extensions */,
+				92504CA61E4B03F300883440 /* ViewControllers */,
 				9221BA6A1E4ACE3D00E26A28 /* Models */,
 				929C6BCF1E4ACC2400B11086 /* AppDelegate.swift */,
-				929C6BD31E4ACC2400B11086 /* Main.storyboard */,
 				929C6BD61E4ACC2400B11086 /* Assets.xcassets */,
-				929C6BD81E4ACC2400B11086 /* LaunchScreen.storyboard */,
 				929C6BDB1E4ACC2400B11086 /* Info.plist */,
 			);
 			path = "E-Learning";
@@ -116,6 +166,7 @@
 				TargetAttributes = {
 					929C6BCB1E4ACC2400B11086 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = VV528E4X2Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -143,9 +194,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929C6BDA1E4ACC2400B11086 /* LaunchScreen.storyboard in Resources */,
+				9217B23B1E4C010E00744083 /* LaunchScreen.storyboard in Resources */,
+				9217B23C1E4C010E00744083 /* Main.storyboard in Resources */,
 				929C6BD71E4ACC2400B11086 /* Assets.xcassets in Resources */,
-				929C6BD51E4ACC2400B11086 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,35 +207,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9217B23D1E4C012800744083 /* LoginViewController.swift in Sources */,
+				9217B23E1E4C012800744083 /* RegisterViewController.swift in Sources */,
 				9221BA6C1E4AD03C00E26A28 /* User.swift in Sources */,
+				925A70861E4C1DD000B4AA02 /* UIViewController+Extensions.swift in Sources */,
 				929C6BD01E4ACC2400B11086 /* AppDelegate.swift in Sources */,
+				925A70801E4C0ACF00B4AA02 /* Constants.swift in Sources */,
+				925A70881E4C1DF600B4AA02 /* UIView+Extensions.swift in Sources */,
 				9221BA741E4AD51B00E26A28 /* Word.swift in Sources */,
 				9221BA761E4AD5BF00E26A28 /* Answer.swift in Sources */,
+				925A70821E4C0CBB00B4AA02 /* DataValidator.swift in Sources */,
 				9221BA701E4AD1D400E26A28 /* Category.swift in Sources */,
 				9221BA721E4AD3CE00E26A28 /* Lesson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		929C6BD31E4ACC2400B11086 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				929C6BD41E4ACC2400B11086 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		929C6BD81E4ACC2400B11086 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				929C6BD91E4ACC2400B11086 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		929C6BDC1E4ACC2400B11086 /* Debug */ = {
@@ -282,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VV528E4X2Y;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";
@@ -294,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VV528E4X2Y;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";
