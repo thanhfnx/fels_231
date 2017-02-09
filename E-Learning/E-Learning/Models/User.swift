@@ -17,4 +17,9 @@ class User {
     var avatarURL: String?
     var authToken: String?
     
+    init(email: String, password: String) {
+        self.email = email
+        self.password = password
+    }
+    
 }
