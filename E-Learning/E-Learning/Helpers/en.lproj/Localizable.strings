@@ -7,5 +7,15 @@
 */
 
 // MARK: - Strings for Lesson
+
 "Categories" = "Categories";
 
+// MARK: - String for DataValidator
+
+"EmptyFieldMessage" = "%@ can't be empty!";
+"InvalidFormatFieldMessage" = "%@ format is invalid!";
+"InvalidLengthFieldMessage" = "%@ can't be less than %d characters!";
+"InvalidMatchFieldMessage" = "%@ and %@ have to be the same!";
+"Password" = "Password";
+"RetypePassword" = "Retype password";
+"FullName" = "Full name";

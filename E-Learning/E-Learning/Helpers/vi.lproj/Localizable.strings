@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  E-Learning
+
+  Created by Huy Pham on 2/9/17.
+  Copyright © 2017 Framgia. All rights reserved.
+*/
+
+// MARK: - Strings for Lesson
+
+"Categories" = "Các danh mục";
+
+// MARK: - String for DataValidator
+
+"EmptyFieldMessage" = "%@ không được để trống!";
+"InvalidFormatFieldMessage" = "%@ không đúng định dạng!";
+"InvalidLengthFieldMessage" = "%@ không được nhỏ hơn %d ký tự!";
+"InvalidMatchFieldMessage" = "%@ và %@ phải giống nhau!";
+"Password" = "Mật khẩu";
+"RetypePassword" = "Nhập lại mật khẩu";
+"FullName" = "Họ tên";

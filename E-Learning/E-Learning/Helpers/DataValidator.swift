@@ -9,32 +9,37 @@
 import Foundation
 
 class DataValidator {
-    
-    class func validate(email: String?) -> (isValid: Bool, result: String) {
-        guard let email = email else {
-            return (false, kEmptyEmailMessage);
+
+    class func validate(string: String?, fieldName: String, minimumLength: Int?,
+        format: String?,
+        compareWith: (compareString: String, compareFieldName: String)?) ->
+        (isValid: Bool, result: String) {
+        guard let string = string else {
+            return (false, String.init(format: "EmptyFieldMessage".localized,
+            fieldName))
         }
-        if email.isEmpty {
-            return (false, kEmptyEmailMessage);
+        if string.isEmpty {
+            return (false, String.init(format: "EmptyFieldMessage".localized,
+            fieldName))
         }
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", kEmailRegex)
-        if !emailPredicate.evaluate(with: email) {
-            return (false, kInvalidEmailMessage)
+        if let min = minimumLength, string.characters.count < min {
+            return (false,
+            String.init(format: "InvalidLengthFieldMessage".localized,
+            fieldName, min))
         }
-        return (true, email)
-    }
-    
-    class func validate(password: String?) -> (isValid: Bool, result: String) {
-        guard let password = password else {
-            return (false, kEmptyPasswordMessage);
+        if let format = format {
+            let predicate = NSPredicate(format: "SELF MATCHES %@", format)
+            if !predicate.evaluate(with: string) {
+                return (false,
+                String.init(format: "InvalidFormatFieldMessage".localized,
+                fieldName))
+            }
         }
-        if password.isEmpty {
-            return (false, kEmptyPasswordMessage);
+        if let second = compareWith, second.compareString != string {
+            return (false, String.init(format: "InvalidMatchFieldMessage".localized,
+            fieldName, second.compareFieldName.lowercased()))
         }
-        if password.characters.count < kMinimumPasswordLength {
-            return (false, kInvalidPasswordLengthMessage)
-        }
-        return (true, password);
+        return (true, string)
     }
 
 }

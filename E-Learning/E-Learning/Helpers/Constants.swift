@@ -14,13 +14,9 @@ let kGoToRegisterSegueIdentifier = "goToRegister"
 
 // MARK: - Constants for DataValidator
 
-let kEmptyEmailMessage = "Email can't be empty!"
-let kInvalidEmailMessage = "Email format is invalid!"
 let kEmailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-let kEmptyPasswordMessage = "Password can't be empty!"
 let kMinimumPasswordLength = 6
-let kInvalidPasswordLengthMessage = "Password can't be less than "
-    + "\(kMinimumPasswordLength) characters!"
+//let kInvalidRetypePasswordMessage = "InvalidRetypePasswordMessage".localized
 
 // MARK: - Constants for Lesson
 

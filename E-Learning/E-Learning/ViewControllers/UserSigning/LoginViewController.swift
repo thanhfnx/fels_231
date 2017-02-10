@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum ViewTag: Int {
+    case emailTextField = 1
+    case passwordTextField = 2
+    case fullNameTextField = 3
+    case retypePasswordTextField = 4
+}
+
 class LoginViewController: UIViewController {
 
     // MARK: - IBOutlet
@@ -19,25 +26,19 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     fileprivate func getUser() -> User? {
-        let email = DataValidator.validate(email: self.emailTextField?.text)
-        if !email.isValid {
-            self.show(message: email.result, title: nil,
+        return User(email: self.emailTextField?.text,
+            password: self.passwordTextField?.text,
+            error: { (message, tag) in
+            self.show(message: message, title: nil,
                 completion: { (action) in
-                self.emailTextField.becomeFirstResponder()
+                self.view.viewWithTag(tag)?.becomeFirstResponder()
             })
-            return nil
-        }
-        let password = DataValidator.validate(password:
-            self.passwordTextField?.text)
-        if !password.isValid {
-            self.show(message: password.result, title: nil,
-                completion: { (action) in
-                self.passwordTextField.becomeFirstResponder()
-            })
-            return nil
-        }
-        return User(email: email.result, password: password.result)
+        })
     }
     
     // MARK: - IBAction
@@ -60,6 +61,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func signInWithGoogleButtonTapped(_ sender: UIButton) {
         // TODO: Sign in with Google
+    }
+    
+    @IBAction func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 
 }

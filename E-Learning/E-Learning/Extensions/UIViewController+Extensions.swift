@@ -13,7 +13,7 @@ extension UIViewController {
     func show(message: String?, title: String?,
         completion: ((UIAlertAction) -> Void)?) {
         guard let message = message else {
-            return;
+            return
         }
         let alertController = UIAlertController(title: title ?? "Alert",
             message: message, preferredStyle: .alert)
