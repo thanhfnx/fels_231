@@ -2,7 +2,7 @@
 //  Constants.swift
 //  E-Learning
 //
-//  Created by Thanh Nguyen on 2/9/17.
+//  Created by Huy Pham on 2/8/17.
 //  Copyright © 2017 Framgia. All rights reserved.
 //
 
@@ -21,3 +21,12 @@ let kEmptyPasswordMessage = "Password can't be empty!"
 let kMinimumPasswordLength = 6
 let kInvalidPasswordLengthMessage = "Password can't be less than "
     + "\(kMinimumPasswordLength) characters!"
+
+// MARK: - Constants for Lesson
+
+let kCategoriesNavigationTitle = "Categories".localized
+let kCategoryCellId = "CategoryCell"
+let kShowLessonSegueId = "ShowLesson"
+let kLessonAnswerCellId = "LessonAnswerCell"
+let kResultViewControllerId = "ResultViewController"
+let kResultCellId = "ResultCell"
