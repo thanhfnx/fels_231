@@ -1,5 +1,5 @@
 //
-//  UpdateProfileViewController.swift
+//  WordsListCell.swift
 //  E-Learning
 //
 //  Created by Nguyen Quoc Tinh on 2/10/17.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class UpdateProfileViewController: UIViewController {
-
+class WordsListCell: UITableViewCell {
+    
 }
