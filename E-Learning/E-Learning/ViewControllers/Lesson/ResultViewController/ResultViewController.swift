@@ -34,7 +34,7 @@ extension ResultViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:
             kResultCellId, for: indexPath) as? ResultCell else {
-                return UITableViewCell()
+            return UITableViewCell()
         }
         return cell
     }

@@ -42,8 +42,10 @@ extension LessonViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kLessonAnswerCellId,
-            for: indexPath) as! LessonAnswerCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier:
+            kLessonAnswerCellId, for: indexPath) as? LessonAnswerCell else {
+            return UITableViewCell()
+        }
         return cell
     }
     
