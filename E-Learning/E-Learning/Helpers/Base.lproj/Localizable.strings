@@ -19,3 +19,7 @@
 "Password" = "Password";
 "RetypePassword" = "Retype password";
 "FullName" = "Full name";
+
+// MARK: - String for APIService
+"UnknownError" = "Uknown Error!";
+
