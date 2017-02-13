@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var retypePasswordTextField: UITextField!
+    @IBOutlet weak var indicatorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,15 +69,18 @@ class RegisterViewController: UIViewController {
         guard let user = getUser() else {
             return
         }
-        UserService.shared.register(user: user) { (message, result) in
+        self.view.endEditing(true)
+        self.indicatorView?.isHidden = false
+        UserService.shared.register(user: user) { [weak self] (message, result) in
+            self?.indicatorView?.isHidden = true
             guard let user = result else {
                 if let message = message, !message.isEmpty {
-                    self.show(message: message, title: nil, completion: nil)
+                    self?.show(message: message, title: nil, completion: nil)
                 }
                 return
             }
             DataStore.shared.loggedInUser = user
-            self.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
+            self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
                 sender: self)
         }
     }
