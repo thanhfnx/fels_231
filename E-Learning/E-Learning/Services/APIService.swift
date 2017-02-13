@@ -15,8 +15,41 @@ enum HttpMethod: String {
     case delete = "DELETE"
 }
 
-class APIService {
+enum APIServiceError: Error {
+    case errorCreateURLRequest
+    case errorParseJSON
+}
 
+class APIService {
+    
+    func makeURLRequest(url: String, parameters: [String:String],
+        method: HttpMethod) -> URLRequest? {
+        var urlString = url
+        var paramsString = ""
+        for (key, value) in parameters {
+            paramsString += "&\(key)=\(value)"
+        }
+        paramsString.remove(at: paramsString.startIndex)
+        switch method {
+        case .get:
+            urlString += paramsString
+            guard let url = URL(string: urlString) else {
+                return nil
+            }
+            var request = URLRequest(url: url)
+            request.httpMethod = method.rawValue
+            return request
+        case .post, .patch, .delete:
+            guard let url = URL(string: urlString) else {
+                return nil
+            }
+            var request = URLRequest(url: url)
+            request.httpMethod = method.rawValue
+            request.httpBody = paramsString.data(using: .utf8)
+            return request
+        }
+    }
+    
     func sendRequest(url: String, method: HttpMethod,
         params: [String: Any], success: @escaping ([String: Any]) -> (),
         failure: @escaping (String) -> ()) {
@@ -62,5 +95,4 @@ class APIService {
         }
         dataTask.resume()
     }
-    
 }

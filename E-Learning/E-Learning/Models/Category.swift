@@ -13,7 +13,18 @@ class Category {
     var id: Int?
     var name: String?
     var photoURL: String?
-    var learntWords = 0
+    var learnedWords = 0
     var totalPages = 0
-    
+ 
+    init(dictionary: Dictionary<String, Any>) {
+        id = dictionary.intForKey("id")
+        name = dictionary.stringForKey("name")
+        photoURL = dictionary.stringForKey("photo")
+        if let intValue = dictionary.intForKey("learned_words") {
+            learnedWords = intValue
+        }
+        if let intValue = dictionary.intForKey("total_pages") {
+            totalPages = intValue
+        }
+    }
 }
