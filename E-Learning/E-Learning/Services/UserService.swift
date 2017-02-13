@@ -29,6 +29,8 @@ class UserService: APIService {
                 }
                 return
             }
+            UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
+            UserDefaults.standard.set(userJSON, forKey: kLoggedInUserKey)
             let result = User(keyedValues: userJSON)
             complete(nil, result)
         }) { (error) in
@@ -52,6 +54,8 @@ class UserService: APIService {
                 }
                 return
             }
+            UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
+            UserDefaults.standard.set(userJSON, forKey: kLoggedInUserKey)
             let result = User(keyedValues: userJSON)
             complete(nil, result)
         }) { (error) in

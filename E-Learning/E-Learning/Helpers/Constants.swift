@@ -12,6 +12,7 @@ import Foundation
 
 let kGoToRegisterSegueIdentifier = "goToRegister"
 let kGoToHomeSegueIdentifier = "goToHome"
+let kLoggedInUserKey = "com.framgia.E-Learing.loggedInUserJSON"
 
 // MARK: - Constants for DataValidator
 

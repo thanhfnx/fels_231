@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var indicatorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,15 +63,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let user = getUser() else {
             return
         }
-        UserService.shared.login(user: user) { (message, result) in
+        self.view.endEditing(true)
+        self.indicatorView?.isHidden = false
+        UserService.shared.login(user: user) { [weak self] (message, result) in
+            self?.indicatorView?.isHidden = true
             guard let user = result else {
                 if let message = message, !message.isEmpty {
-                    self.show(message: message, title: nil, completion: nil)
+                    self?.show(message: message, title: nil, completion: nil)
                 }
                 return
             }
             DataStore.shared.loggedInUser = user
-            self.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
+            self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
                 sender: self)
         }
     }
