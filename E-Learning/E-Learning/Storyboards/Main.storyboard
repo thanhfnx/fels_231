@@ -55,7 +55,7 @@
                                             <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-lW-r1X">
+                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test2017@gmail.com" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-lW-r1X">
                                             <rect key="frame" x="81.333333333333314" y="280" width="291.33333333333337" height="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -65,6 +65,9 @@
                                                     <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="kcs-HT-GCg" id="URM-vZ-7K8"/>
+                                            </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="jzS-34-iMa">
                                             <rect key="frame" x="41.333333333333336" y="278" width="20" height="20"/>
@@ -114,7 +117,7 @@
                                                 <action selector="signInButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="U2Q-Tl-DaL"/>
                                             </connections>
                                         </button>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZSt-xI-hh2">
+                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test2017" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZSt-xI-hh2">
                                             <rect key="frame" x="81.333333333333314" y="331" width="291.33333333333337" height="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -124,6 +127,9 @@
                                                     <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="kcs-HT-GCg" id="Zg8-sQ-o21"/>
+                                            </connections>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eky-HY-XqF">
                                             <rect key="frame" x="41.333333333333329" y="464" width="111.66666666666667" height="1"/>
@@ -270,6 +276,7 @@
                         <outlet property="emailTextField" destination="xnX-lW-r1X" id="1fv-Yd-k73"/>
                         <outlet property="passwordTextField" destination="ZSt-xI-hh2" id="rZM-yT-bNw"/>
                         <segue destination="wRg-zZ-XWb" kind="show" identifier="goToRegister" id="sbd-ig-HwQ"/>
+                        <segue destination="vN7-jW-rNL" kind="presentation" identifier="goToHome" id="d5k-sv-HMN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2U-8b-gg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,6 +287,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-39.375" y="54.929577464788736"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="2S2-Hq-yLK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="vN7-jW-rNL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C11-Kj-ddB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-41" y="488"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="P9O-mE-ecK">
@@ -318,6 +333,9 @@
                                                     <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="wRg-zZ-XWb" id="xmG-ao-ogI"/>
+                                            </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="98E-hs-y7k">
                                             <rect key="frame" x="42" y="278" width="20" height="20"/>
@@ -356,6 +374,9 @@
                                                     <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="wRg-zZ-XWb" id="K5q-8v-AkV"/>
+                                            </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEE-PC-BVk">
                                             <rect key="frame" x="41.333333333333343" y="384" width="331.33333333333337" height="32"/>
@@ -388,6 +409,9 @@
                                                     <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="wRg-zZ-XWb" id="fAY-Zt-wcf"/>
+                                            </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-Cb-P4e">
                                             <rect key="frame" x="41" y="227" width="20" height="20"/>
@@ -406,12 +430,15 @@
                                             <rect key="frame" x="81" y="178" width="291" height="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                     <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="wRg-zZ-XWb" id="azc-qR-0nh"/>
+                                            </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_fullName" translatesAutoresizingMaskIntoConstraints="NO" id="bqB-Qt-naC">
                                             <rect key="frame" x="41.333333333333336" y="176" width="20" height="20"/>
@@ -509,6 +536,7 @@
                         <outlet property="fullNameTextField" destination="aYF-Jy-yuc" id="Saa-fM-nfe"/>
                         <outlet property="passwordTextField" destination="ZG2-kL-Mc7" id="7tX-t0-F2t"/>
                         <outlet property="retypePasswordTextField" destination="4iI-gJ-Axa" id="3Th-oZ-tPB"/>
+                        <segue destination="vN7-jW-rNL" kind="presentation" identifier="goToHome" id="8oR-wy-R9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIL-fC-UQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -531,4 +559,7 @@
         <image name="ic_password" width="50" height="50"/>
         <image name="logo_main" width="441" height="441"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8oR-wy-R9z"/>
+    </inferredMetricsTieBreakers>
 </document>

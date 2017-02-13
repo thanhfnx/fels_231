@@ -8,14 +8,44 @@
 
 import UIKit
 
-class User {
+class Activity: NSObject {
 
-    var id: Int?
-    var name: String?
-    var email: String?
-    var password: String?
-    var avatarURL: String?
-    var authToken: String?
+    var id: Int = 0
+    var content: String = ""
+    var create_at: String = ""
+    
+}
+
+class User: NSObject {
+
+    var id: Int = 0
+    var name: String = ""
+    var email: String = ""
+    var password: String = ""
+    var avatar: String = ""
+    var admin: Bool = false
+    var auth_token: String = ""
+    var created_at: String = ""
+    var updated_at: String = ""
+    var learned_words = 0
+    var activities = [Activity]()
+    
+    override init() {
+        super.init()
+    }
+    
+    override func setValue(_ value: Any?, forKey key: String) {
+        if (key == "activities") {
+            // TODO
+        } else {
+            super.setValue(value, forKey: key)
+        }
+    }
+
+    init(keyedValues: [String: Any]) {
+        super.init()
+        setValuesForKeys(keyedValues)
+    }
     
     init?(email: String?, password: String?,
         error: @escaping (String, Int) -> Void) {

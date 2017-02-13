@@ -18,6 +18,15 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setValues()
+    }
+    
+    fileprivate func setValues() {
+        let user = DataStore.shared.loggedInUser
+        self.userAvatarImage?.imageFrom(urlString: user?.avatar)
+        self.userNameLabel?.text = user?.name
+        self.userEmailLabel?.text = user?.email
+        // TODO: Update more field
     }
     
 }

@@ -15,7 +15,7 @@ enum ViewTag: Int {
     case retypePasswordTextField = 4
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - IBOutlet
 
@@ -41,12 +41,37 @@ class LoginViewController: UIViewController {
         })
     }
     
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.emailTextField {
+            self.passwordTextField.becomeFirstResponder()
+        } else if textField == self.passwordTextField {
+            self.signIn()
+        }
+        return true
+    }
+    
     // MARK: - IBAction
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        if let user = getUser() {
-            // TODO: Handle login
-            print(user)
+        self.signIn()
+    }
+    
+    fileprivate func signIn() {
+        guard let user = getUser() else {
+            return
+        }
+        UserService.shared.login(user: user) { (message, result) in
+            guard let user = result else {
+                if let message = message, !message.isEmpty {
+                    self.show(message: message, title: nil, completion: nil)
+                }
+                return
+            }
+            DataStore.shared.loggedInUser = user
+            self.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
+                sender: self)
         }
     }
     

@@ -39,6 +39,21 @@ class RegisterViewController: UIViewController {
         })
     }
     
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.fullNameTextField {
+            self.emailTextField.becomeFirstResponder()
+        } else if textField == self.emailTextField {
+            self.passwordTextField.becomeFirstResponder()
+        } else if textField == self.passwordTextField {
+            self.retypePasswordTextField.becomeFirstResponder()
+        } else if textField == self.retypePasswordTextField {
+            self.signUp()
+        }
+        return true
+    }
+    
     // MARK: - IBAction
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -46,9 +61,23 @@ class RegisterViewController: UIViewController {
     }
 
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        if let user = getUser() {
-            // TODO: Handle register
-            print(user)
+        self.signUp()
+    }
+    
+    fileprivate func signUp() {
+        guard let user = getUser() else {
+            return
+        }
+        UserService.shared.register(user: user) { (message, result) in
+            guard let user = result else {
+                if let message = message, !message.isEmpty {
+                    self.show(message: message, title: nil, completion: nil)
+                }
+                return
+            }
+            DataStore.shared.loggedInUser = user
+            self.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
+                sender: self)
         }
     }
     

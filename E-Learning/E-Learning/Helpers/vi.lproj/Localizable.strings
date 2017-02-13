@@ -19,3 +19,6 @@
 "Password" = "Mật khẩu";
 "RetypePassword" = "Nhập lại mật khẩu";
 "FullName" = "Họ tên";
+
+// MARK: - String for APIService
+"UnknownError" = "Lỗi không xác định!";
