@@ -44,6 +44,7 @@
 		92D6B99D1E517B09004F565B /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6B99C1E517B09004F565B /* UIImageView+URL.swift */; };
 		A52FF4391E4C497700EEADE2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52FF4381E4C497700EEADE2 /* Home.storyboard */; };
 		A52FF4451E4C4BBE00EEADE2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FF4431E4C4BBE00EEADE2 /* RegisterViewController.swift */; };
+		DB54928BDD08FD3277D84469 /* Pods_E_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE713528E8AC9B1DE849E995 /* Pods_E_Learning.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,9 @@
 		A52FF4381E4C497700EEADE2 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A52FF4421E4C4BBE00EEADE2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A52FF4431E4C4BBE00EEADE2 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A93C266E01F5F169A88536EA /* Pods-E-Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-E-Learning/Pods-E-Learning.release.xcconfig"; sourceTree = "<group>"; };
+		EB7364C9C83B487969F027B7 /* Pods-E-Learning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Learning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-E-Learning/Pods-E-Learning.debug.xcconfig"; sourceTree = "<group>"; };
+		FE713528E8AC9B1DE849E995 /* Pods_E_Learning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_Learning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB54928BDD08FD3277D84469 /* Pods_E_Learning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +170,23 @@
 			path = WordsListController;
 			sourceTree = "<group>";
 		};
+		5840D9DC24107CAABFB9ED8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB7364C9C83B487969F027B7 /* Pods-E-Learning.debug.xcconfig */,
+				A93C266E01F5F169A88536EA /* Pods-E-Learning.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		58C54353C729A84F84CF8823 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE713528E8AC9B1DE849E995 /* Pods_E_Learning.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92039FF81E4BFC29000481C5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +247,8 @@
 			children = (
 				929C6BCE1E4ACC2400B11086 /* E-Learning */,
 				929C6BCD1E4ACC2400B11086 /* Products */,
+				5840D9DC24107CAABFB9ED8D /* Pods */,
+				58C54353C729A84F84CF8823 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,9 +321,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 929C6BDE1E4ACC2400B11086 /* Build configuration list for PBXNativeTarget "E-Learning" */;
 			buildPhases = (
+				EE93AF3EB898C72B0ABD8DFC /* [CP] Check Pods Manifest.lock */,
 				929C6BC81E4ACC2400B11086 /* Sources */,
 				929C6BC91E4ACC2400B11086 /* Frameworks */,
 				929C6BCA1E4ACC2400B11086 /* Resources */,
+				F8591DE509AE4A3DD9D561B4 /* [CP] Embed Pods Frameworks */,
+				11EC2F547ECE504429161F89 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,7 +349,7 @@
 				TargetAttributes = {
 					929C6BCB1E4ACC2400B11086 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = HG9LP32JL6;
+						DevelopmentTeam = VV528E4X2Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -362,6 +389,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11EC2F547ECE504429161F89 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-E-Learning/Pods-E-Learning-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE93AF3EB898C72B0ABD8DFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8591DE509AE4A3DD9D561B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-E-Learning/Pods-E-Learning-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		929C6BC81E4ACC2400B11086 /* Sources */ = {
@@ -512,9 +587,10 @@
 		};
 		929C6BDF1E4ACC2400B11086 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB7364C9C83B487969F027B7 /* Pods-E-Learning.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HG9LP32JL6;
+				DEVELOPMENT_TEAM = VV528E4X2Y;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";
@@ -525,9 +601,10 @@
 		};
 		929C6BE01E4ACC2400B11086 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A93C266E01F5F169A88536EA /* Pods-E-Learning.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HG9LP32JL6;
+				DEVELOPMENT_TEAM = VV528E4X2Y;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";

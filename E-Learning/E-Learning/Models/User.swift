@@ -47,6 +47,15 @@ class User: NSObject {
         setValuesForKeys(keyedValues)
     }
     
+    init?(email: String?, name: String?, avatar: String?) {
+        guard let email = email, let name = name, let avatar = avatar else {
+            return nil
+        }
+        self.email = email
+        self.name = name
+        self.avatar = avatar
+    }
+    
     init?(email: String?, password: String?,
         error: @escaping (String, Int) -> Void) {
         let validatedEmail = DataValidator.validate(string: email,
