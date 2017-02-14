@@ -50,7 +50,7 @@ class RegisterViewController: UIViewController {
         } else if textField == self.passwordTextField {
             self.retypePasswordTextField.becomeFirstResponder()
         } else if textField == self.retypePasswordTextField {
-            self.signUp()
+            self.register()
         }
         return true
     }
@@ -61,11 +61,11 @@ class RegisterViewController: UIViewController {
         _ = self.navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        self.signUp()
+    @IBAction func registerButtonTapped(_ sender: UIButton) {
+        self.register()
     }
     
-    fileprivate func signUp() {
+    fileprivate func register() {
         guard let user = getUser() else {
             return
         }

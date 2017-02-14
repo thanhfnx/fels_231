@@ -56,7 +56,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-lW-r1X">
-                                            <rect key="frame" x="81.333333333333314" y="280" width="291.33333333333337" height="18"/>
+                                            <rect key="frame" x="81" y="280" width="292" height="18"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
@@ -70,34 +71,34 @@
                                             </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="jzS-34-iMa">
-                                            <rect key="frame" x="41.333333333333336" y="278" width="20" height="20"/>
+                                            <rect key="frame" x="41" y="278" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="jzS-34-iMa" secondAttribute="height" multiplier="1:1" id="Jq4-w2-CMT"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fH9-uQ-Ccu">
-                                            <rect key="frame" x="41.333333333333343" y="304" width="331.33333333333337" height="1"/>
+                                            <rect key="frame" x="41" y="304" width="332" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="3fI-34-QYO"/>
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="57P-CC-02h">
-                                            <rect key="frame" x="41.333333333333336" y="329" width="20" height="20"/>
+                                            <rect key="frame" x="41" y="329" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="KiJ-gG-7FQ"/>
                                                 <constraint firstAttribute="width" secondItem="57P-CC-02h" secondAttribute="height" multiplier="1:1" id="gJ8-G8-u8W"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Vx-ZF-5In">
-                                            <rect key="frame" x="41.333333333333343" y="355" width="331.33333333333337" height="1"/>
+                                            <rect key="frame" x="41" y="355" width="332" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="Sl6-b1-5Dz"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFQ-4H-Xvy">
-                                            <rect key="frame" x="41.333333333333343" y="384" width="331.33333333333337" height="32"/>
+                                            <rect key="frame" x="41" y="384" width="332" height="32"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                             <state key="normal" title="Sign In">
                                                 <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -114,11 +115,12 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="signInButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="U2Q-Tl-DaL"/>
+                                                <action selector="logInButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="mkl-hX-WEO"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZSt-xI-hh2">
-                                            <rect key="frame" x="81.333333333333314" y="331" width="291.33333333333337" height="18"/>
+                                            <rect key="frame" x="81" y="331" width="292" height="18"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -132,20 +134,20 @@
                                             </connections>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eky-HY-XqF">
-                                            <rect key="frame" x="41.333333333333329" y="464" width="111.66666666666667" height="1"/>
+                                            <rect key="frame" x="41" y="464" width="112" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="vdv-gy-0AA"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or Sign in with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzW-jM-84H">
-                                            <rect key="frame" x="161" y="456" width="92.666666666666657" height="17"/>
+                                            <rect key="frame" x="161" y="456" width="93" height="17"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                             <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-0k-sp7">
-                                            <rect key="frame" x="261.66666666666669" y="464" width="111" height="1"/>
+                                            <rect key="frame" x="262" y="464" width="111" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="sID-rk-oQb"/>
@@ -159,7 +161,7 @@
                                             </constraints>
                                             <state key="normal" image="ic_facebook"/>
                                             <connections>
-                                                <action selector="signInWithFacebookButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="jtE-jf-Icj"/>
+                                                <action selector="logInWithFacebookButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="eKy-sD-1Op"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyj-9Z-q7k">
@@ -169,7 +171,7 @@
                                             </constraints>
                                             <state key="normal" image="ic_google"/>
                                             <connections>
-                                                <action selector="signInWithGoogleButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="eKe-X9-qLw"/>
+                                                <action selector="logInWithGoogleButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="fNm-4l-xVf"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3G-Qf-Nlp">
@@ -179,7 +181,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mku-iE-GIp">
-                                            <rect key="frame" x="41.333333333333343" y="688" width="331.33333333333337" height="32"/>
+                                            <rect key="frame" x="41" y="688" width="332" height="32"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                             <state key="normal" title="Sign Up Now">
                                                 <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -196,11 +198,11 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="signUpButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="laB-My-UQq"/>
+                                                <action selector="goToRegisterButtonTapped:" destination="kcs-HT-GCg" eventType="touchUpInside" id="NQe-PD-ZZO"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_main" translatesAutoresizingMaskIntoConstraints="NO" id="wT2-3Q-cYR">
-                                            <rect key="frame" x="176" y="108.00000000000001" width="62" height="62.333333333333357"/>
+                                            <rect key="frame" x="176" y="108" width="62" height="62"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="wT2-3Q-cYR" secondAttribute="height" multiplier="1:1" id="GAx-Vz-rBf"/>
                                             </constraints>
@@ -209,7 +211,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="i8u-Hi-c6c">
-                                                    <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
+                                                    <rect key="frame" x="189" y="350" width="37" height="37"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
@@ -342,7 +344,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZG2-kL-Mc7">
-                                            <rect key="frame" x="82" y="280" width="291" height="18"/>
+                                            <rect key="frame" x="81" y="280" width="292" height="18"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES"/>
@@ -356,34 +359,35 @@
                                             </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="98E-hs-y7k">
-                                            <rect key="frame" x="42" y="278" width="20" height="20"/>
+                                            <rect key="frame" x="41" y="278" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="98E-hs-y7k" secondAttribute="height" multiplier="1:1" id="Zp4-PU-Rys"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPi-hG-5Z1">
-                                            <rect key="frame" x="42" y="304" width="331" height="1"/>
+                                            <rect key="frame" x="41" y="304" width="332" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="LOa-Ox-CBr"/>
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="F8E-cg-DBn">
-                                            <rect key="frame" x="42" y="329" width="20" height="20"/>
+                                            <rect key="frame" x="41" y="329" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="iq6-uZ-G9z"/>
                                                 <constraint firstAttribute="width" secondItem="F8E-cg-DBn" secondAttribute="height" multiplier="1:1" id="joN-ic-4xj"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lve-hG-bIO">
-                                            <rect key="frame" x="42" y="355" width="331" height="1"/>
+                                            <rect key="frame" x="41" y="355" width="332" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="OCu-SO-hXW"/>
                                             </constraints>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Retype password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iI-gJ-Axa">
-                                            <rect key="frame" x="82" y="331" width="291" height="18"/>
+                                            <rect key="frame" x="81" y="331" width="292" height="18"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -397,7 +401,7 @@
                                             </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEE-PC-BVk">
-                                            <rect key="frame" x="41.333333333333343" y="384" width="331.33333333333337" height="32"/>
+                                            <rect key="frame" x="41" y="384" width="332" height="32"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                             <state key="normal" title="Sign Up">
                                                 <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -414,11 +418,12 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="signUpButtonTapped:" destination="wRg-zZ-XWb" eventType="touchUpInside" id="OQN-gc-BwU"/>
+                                                <action selector="registerButtonTapped:" destination="wRg-zZ-XWb" eventType="touchUpInside" id="Lt2-vO-4J7"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br7-0E-UUu">
-                                            <rect key="frame" x="81" y="229" width="291" height="18"/>
+                                            <rect key="frame" x="81" y="229" width="292" height="18"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
@@ -438,14 +443,15 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQj-bt-ghS">
-                                            <rect key="frame" x="41" y="253" width="331" height="1"/>
+                                            <rect key="frame" x="41" y="253" width="332" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="kYK-nQ-Oi9"/>
                                             </constraints>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYF-Jy-yuc">
-                                            <rect key="frame" x="81" y="178" width="291" height="18"/>
+                                            <rect key="frame" x="81" y="178" width="292" height="18"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
@@ -459,20 +465,20 @@
                                             </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_fullName" translatesAutoresizingMaskIntoConstraints="NO" id="bqB-Qt-naC">
-                                            <rect key="frame" x="41.333333333333336" y="176" width="20" height="20"/>
+                                            <rect key="frame" x="41" y="176" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="bqB-Qt-naC" secondAttribute="height" multiplier="1:1" id="1fV-O8-dPA"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxi-FJ-UQg">
-                                            <rect key="frame" x="41.333333333333343" y="202" width="331.33333333333337" height="1"/>
+                                            <rect key="frame" x="41" y="202" width="332" height="1"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="rB4-Oa-mob"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frl-5g-1O9">
-                                            <rect key="frame" x="39.333333333333336" y="48" width="24" height="24"/>
+                                            <rect key="frame" x="39" y="48" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="24" id="Dr2-MC-LTd"/>
                                                 <constraint firstAttribute="width" secondItem="Frl-5g-1O9" secondAttribute="height" multiplier="1:1" id="fPu-hr-6fQ"/>
@@ -486,7 +492,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gc4-qF-aoP">
-                                                    <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
+                                                    <rect key="frame" x="189" y="350" width="37" height="37"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
@@ -596,6 +602,6 @@
         <image name="logo_main" width="441" height="441"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d5k-sv-HMN"/>
+        <segue reference="8oR-wy-R9z"/>
     </inferredMetricsTieBreakers>
 </document>

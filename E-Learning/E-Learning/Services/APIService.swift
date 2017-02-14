@@ -77,8 +77,8 @@ class APIService {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest)
             { (data, response, error) in
-            if error != nil {
-                failure(error!.localizedDescription)
+            if let error = error {
+                failure(error.localizedDescription)
                 return
             }
             do {
