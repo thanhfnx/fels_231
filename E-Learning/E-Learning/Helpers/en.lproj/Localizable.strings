@@ -17,7 +17,7 @@
 "InvalidLengthFieldMessage" = "%@ can't be less than %d characters!";
 "InvalidMatchFieldMessage" = "%@ and %@ have to be the same!";
 "Password" = "Password";
-"RetypePassword" = "Retype password";
+"RetypePassword" = "Re-type password";
 "FullName" = "Full name";
 
 // MARK: - String for APIService

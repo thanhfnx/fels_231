@@ -74,7 +74,6 @@ class UserService: APIService {
         ]
         sendRequest(url: kRegisterWithSocialURL, method: .post, params: params,
             success: { (json) in
-            print(json)
             guard let userJSON = json["user"] as? [String: Any] else {
                 if let message = json["message"] as? String {
                     complete(message + "!", nil)
