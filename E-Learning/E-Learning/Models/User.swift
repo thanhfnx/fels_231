@@ -106,4 +106,22 @@ class User: NSObject {
         self.password = user.password
     }
     
+    init?(fullName: String?, oldPassword: String?, newPassword: String?, confirmPassword: String?, error: @escaping (String, Int) -> Void) {
+        let validatedFullName = DataValidator.validate(string: fullName, fieldName: "FullName".localized, minimumLength: nil, format: nil, compareWith: nil)
+        if !validatedFullName.isValid {
+            error(validatedFullName.result, ViewTag.fullNameTextField.rawValue)
+            return nil
+        }
+        let validatedPassword = DataValidator.validate(string: password,
+            fieldName: "Password".localized,
+            minimumLength: kMinimumPasswordLength, format: nil, compareWith: 
+            ((DataStore.shared.loggedInUser?.password)!, "CurrentPassword".localized))
+        if !validatedPassword.isValid {
+            error(validatedPassword.result, ViewTag.passwordTextField.rawValue)
+            return nil
+        }
+        
+        
+    }
+    
 }

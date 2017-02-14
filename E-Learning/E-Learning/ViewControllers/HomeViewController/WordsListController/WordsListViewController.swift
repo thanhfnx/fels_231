@@ -11,8 +11,12 @@ import UIKit
 class WordsListViewController: UIViewController {
     @IBOutlet weak var filterRect: UIView!
     @IBOutlet weak var wordsListTableView: UITableView!
-    
+    @IBOutlet weak var filterViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var filterPickerView: UIPickerView!
     let wordsListCellId = "WordsListCellId"
+    
+    var categories = ["Item1", "Item2", "Item3", "Item4", "Item5"]
+    let wordStatuses = ["All", "Learned", "Not Learned"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +24,15 @@ class WordsListViewController: UIViewController {
         bundle: nil), forCellReuseIdentifier: wordsListCellId)
     }
     
-    @IBAction func statusFilter(_ sender: Any) {
-    }
-    @IBAction func categoriesFilter(_ sender: Any) {
+    @IBAction func filterButtonTapped(_ sender: Any) {
+        if self.filterViewHeight.constant == 0 {
+            self.filterViewHeight.constant = 90
+        } else {
+            self.filterViewHeight.constant = 0    
+        }
+        UIView.animate(withDuration: 0.2) { 
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -40,5 +50,30 @@ extension WordsListViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         return cell
+    }
+}
+
+extension WordsListViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return categories.count
+        } else if component == 1 {
+            return wordStatuses.count
+        }
+        return 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, 
+        forComponent component: Int) -> NSAttributedString? {
+        if component == 0 {
+            return NSAttributedString(string: categories[row])
+        } else if component == 1 {
+            return NSAttributedString(string: wordStatuses[row])
+        }
+        return NSAttributedString(string: "")
     }
 }
