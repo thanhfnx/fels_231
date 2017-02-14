@@ -14,7 +14,7 @@ class Category {
     var name: String?
     var photoURL: String?
     var learnedWords = 0
-    var totalPages = 0
+    static var totalPages = 0
  
     init(dictionary: Dictionary<String, Any>) {
         id = dictionary.intForKey("id")
@@ -22,9 +22,6 @@ class Category {
         photoURL = dictionary.stringForKey("photo")
         if let intValue = dictionary.intForKey("learned_words") {
             learnedWords = intValue
-        }
-        if let intValue = dictionary.intForKey("total_pages") {
-            totalPages = intValue
         }
     }
 }

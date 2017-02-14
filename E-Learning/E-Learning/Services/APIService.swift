@@ -22,32 +22,30 @@ enum APIServiceError: Error {
 
 class APIService {
     
-    func makeURLRequest(url: String, parameters: [String:String],
+    func makeURLRequest(urlString: String, parameters: [String:String],
         method: HttpMethod) -> URLRequest? {
-        var urlString = url
         var paramsString = ""
         for (key, value) in parameters {
             paramsString += "&\(key)=\(value)"
         }
         paramsString.remove(at: paramsString.startIndex)
+        var request: URLRequest
         switch method {
         case .get:
-            urlString += paramsString
-            guard let url = URL(string: urlString) else {
+            guard let url = URL(string: "\(urlString)?\(paramsString)") else {
                 return nil
             }
-            var request = URLRequest(url: url)
-            request.httpMethod = method.rawValue
-            return request
+            request = URLRequest(url: url)
         case .post, .patch, .delete:
             guard let url = URL(string: urlString) else {
                 return nil
             }
-            var request = URLRequest(url: url)
-            request.httpMethod = method.rawValue
-            request.httpBody = paramsString.data(using: .utf8)
-            return request
+            request = URLRequest(url: url)
+            request.httpBody = paramsString.data(using: .utf8,
+                allowLossyConversion: true)
         }
+        request.httpMethod = method.rawValue
+        return request
     }
     
     func sendRequest(url: String, method: HttpMethod,

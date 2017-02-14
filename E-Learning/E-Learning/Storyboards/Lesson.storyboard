@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LCM-ld-S5e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7nN-5U-cUc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,14 +28,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bck-Sl-Hs5">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bck-Sl-Hs5">
                                             <rect key="frame" x="8" y="8" width="88.5" height="73.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="bck-Sl-Hs5" secondAttribute="height" multiplier="6:5" id="sKq-kD-uC9"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXo-6w-a5k">
-                                            <rect key="frame" x="104" y="8" width="42" height="21"/>
+                                            <rect key="frame" x="104" y="8" width="41.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -55,10 +55,13 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="E9Z-Qr-h99" firstAttribute="top" secondItem="CXo-6w-a5k" secondAttribute="bottom" constant="8" id="5Ke-4j-3hN"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wRm-QW-1Rs" secondAttribute="trailing" id="AhY-3z-sMh"/>
                                         <constraint firstItem="wRm-QW-1Rs" firstAttribute="top" secondItem="E9Z-Qr-h99" secondAttribute="bottom" constant="8" id="Hdw-MY-56f"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="E9Z-Qr-h99" secondAttribute="trailing" id="N4y-nw-9Qv"/>
                                         <constraint firstItem="CXo-6w-a5k" firstAttribute="top" secondItem="bck-Sl-Hs5" secondAttribute="top" id="Oes-f5-bfD"/>
                                         <constraint firstItem="bck-Sl-Hs5" firstAttribute="top" secondItem="sr8-Yo-UDI" secondAttribute="topMargin" id="UrB-p5-E1D"/>
                                         <constraint firstItem="wRm-QW-1Rs" firstAttribute="leading" secondItem="E9Z-Qr-h99" secondAttribute="leading" id="Z2H-0f-tiy"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="CXo-6w-a5k" secondAttribute="trailing" id="bFu-Vd-Gxl"/>
                                         <constraint firstItem="E9Z-Qr-h99" firstAttribute="leading" secondItem="CXo-6w-a5k" secondAttribute="leading" id="qt2-Uk-Dm7"/>
                                         <constraint firstItem="CXo-6w-a5k" firstAttribute="leading" secondItem="bck-Sl-Hs5" secondAttribute="trailing" constant="7.5" id="vHy-0c-rsF"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bck-Sl-Hs5" secondAttribute="bottom" id="wRN-ug-t7S"/>
@@ -70,7 +73,6 @@
                                     <outlet property="exampleWordsLabel" destination="wRm-QW-1Rs" id="CKf-cw-sgz"/>
                                     <outlet property="nameLabel" destination="CXo-6w-a5k" id="ckQ-Rr-scH"/>
                                     <outlet property="photoImageView" destination="bck-Sl-Hs5" id="dCP-WM-Cho"/>
-                                    <segue destination="oLU-ww-Lyg" kind="show" identifier="ShowLesson" id="mPm-yQ-Xa5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,6 +82,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bpa-wn-Bem"/>
+                    <connections>
+                        <segue destination="oLU-ww-Lyg" kind="show" identifier="ShowLesson" id="Fhx-6d-Ids"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLP-QY-kEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -331,24 +336,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkm-Ia-jAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2736.8000000000002" y="120.98950524737631"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="1Zb-lS-Wlv">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LCM-ld-S5e" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mk2-fh-m1S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7nN-5U-cUc" kind="relationship" relationship="rootViewController" id="vr7-bk-Vty"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kTC-dR-sJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="157.59999999999999" y="120.98950524737631"/>
         </scene>
     </scenes>
     <resources>

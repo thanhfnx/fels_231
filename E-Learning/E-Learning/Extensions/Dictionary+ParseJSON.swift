@@ -15,32 +15,19 @@ extension Dictionary {
     }
     
     func boolForKey(_ key: Key) -> Bool? {
-        guard let value = self[key] as? String else {
-            return nil
-        }
-        let lowercaseValue = value.lowercased()
-        return Bool(lowercaseValue)
+        return self[key] as? Bool
     }
     
     func intForKey(_ key: Key) -> Int? {
-        guard let value = self[key] as? String else {
-            return nil
-        }
-        return Int(value)
+        return self[key] as? Int
     }
     
     func floatForKey(_ key: Key) -> Float? {
-        guard let value = self[key] as? String else {
-            return nil
-        }
-        return Float(value)
+        return self[key] as? Float
     }
     
     func doubleForKey(_ key: Key) -> Double? {
-        guard let value = self[key] as? String else {
-            return nil
-        }
-        return Double(value)
+        return self[key] as? Double
     }
     
     func arrayForKey(_ key: Key) -> Array<Any>? {

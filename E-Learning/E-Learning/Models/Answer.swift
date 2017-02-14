@@ -14,4 +14,11 @@ class Answer {
     var content: String?
     var isCorrect = false
     
+    init(dictionary: Dictionary<String, Any>) {
+        id = dictionary.intForKey("id")
+        content = dictionary.stringForKey("content")
+        if let value = dictionary.boolForKey("is_correct") {
+            isCorrect = value
+        }
+    }
 }
