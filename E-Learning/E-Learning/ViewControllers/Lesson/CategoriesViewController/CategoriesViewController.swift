@@ -12,21 +12,19 @@ class CategoriesViewController: UITableViewController {
         
     var categories = [Category]()
     var lessonService = LessonService()
-        
+    private var currentPage = 1
+    private let perPage = 10
+    var lastItemReached = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = kCategoriesNavigationTitle
-        lessonService.fetchCategories(withInfo: ["page": "0", "per_page": "10"]) {
-            (result) in
-            switch result {
-            case let .success(categories):
-                self.categories = categories
-            case let .failure(error):
-                self.categories.removeAll()
-                print("Error fetching categories: \(error)")
-            }
-            self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshList),
+                                  for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+        self.tableView.refreshControl = refreshControl
+        self.refreshList()
     }
     
     // MARK: - Table view data source
@@ -45,9 +43,50 @@ class CategoriesViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
+        guard let categoryCell = cell as? CategoryCell else {
+            return
+        }
+        categoryCell.update(with: categories[indexPath.row])
+        if !lastItemReached && (indexPath.row == self.categories.count - 1) {
+            lastItemReached = true
+            loadMoreList()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.categories.count - 1 {
+            lastItemReached = false
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let categoryId = self.categories[indexPath.row].id {
+            self.lessonService.createLesson(categoryId: categoryId) {
+                (result) in
+                switch result {
+                case let .success(lesson):
+                    self.performSegue(withIdentifier: "ShowLesson", sender: lesson)
+                case let .failure(error):
+                    print("Error create lesson: \(error)")
+                }
+            }
+        }
+    }
+    
+    // MARK: - Event handling
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowLesson" {
-            // Passing Data here
+            guard let lesson = sender as? Lesson,
+                let lessonViewController = segue.destination as? LessonViewController else {
+                return
+            }
+            lessonViewController.lesson = lesson
         }
     }
 
@@ -56,6 +95,45 @@ class CategoriesViewController: UITableViewController {
             storyboard?.instantiateViewController(withIdentifier:
             kResultViewControllerId)
         present(resultViewController!, animated: true, completion: nil)
+    }
+    
+    func refreshList() {
+        lessonService.fetchCategories(withInfo: ["page": "1", "per_page": "\(perPage)"]) {
+            (result) in
+            self.currentPage = 1
+            switch result {
+            case let .success(categories):
+                self.categories = categories
+            case let .failure(error):
+                self.categories.removeAll()
+                print("Error fetching categories: \(error)")
+            }
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func loadMoreList() {
+        lessonService.fetchCategories(withInfo: ["page": "\(currentPage + 1)",
+            "per_page": "\(perPage)"]) {
+            (result) in
+            switch result {
+            case let .success(categories):
+                let lastIndex = self.categories.count
+                self.categories.append(contentsOf: categories)
+                self.currentPage += 1
+                var newIndexPaths = [IndexPath]()
+                for index in 0..<categories.count {
+                    newIndexPaths.append(IndexPath(row: index + lastIndex, section: 0))
+                }
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: newIndexPaths, with: .fade)
+                self.tableView.endUpdates()
+            case .failure:
+                print("No more items to load")
+            }
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
     
 }

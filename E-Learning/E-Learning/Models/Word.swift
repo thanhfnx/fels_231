@@ -14,5 +14,17 @@ class Word {
     var resultId: Int?
     var content: String?
     var answers = [Answer]()
-    
+
+    init(dictionary: Dictionary<String, Any>) {
+        id = dictionary.intForKey("id")
+        resultId = dictionary.intForKey("resultId")
+        content = dictionary.stringForKey("content")
+        if let answers = dictionary.arrayForKey("answers")
+            as? Array<Dictionary<String, Any>> {
+            for answerDictionary in answers {
+                let answer = Answer(dictionary: answerDictionary)
+                self.answers.append(answer)
+            }
+        }
+    }
 }

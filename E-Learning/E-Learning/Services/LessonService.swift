@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum CategoryResult {
+enum CategoryRequestResult {
     case success([Category])
     case failure(Error)
 }
 
-enum LessonResult {
-    case success([Lesson])
+enum LessonRequestResult {
+    case success(Lesson)
     case failure(Error)
 }
 
@@ -25,33 +25,55 @@ class LessonService: APIService {
     }()
     
     func fetchCategories(withInfo info: [String:String],
-        completion: @escaping (CategoryResult) -> Void) {
+        completion: @escaping (CategoryRequestResult) -> Void) {
         var infoDict = info
-        infoDict["auth_token"] = ""
-        guard let request = makeURLRequest(url: kGetCategoriesURL, parameters: infoDict, method: .get) else {
+        infoDict["auth_token"] = DataStore.shared.loggedInUser?.auth_token ?? ""
+        guard let request = makeURLRequest(urlString: kGetCategoriesURL,
+            parameters: infoDict, method: .get) else {
             completion(.failure(APIServiceError.errorCreateURLRequest))
             return
         }
         let task = session.dataTask(with: request) {
             (data, response, error) in
-            completion(self.processCategoriesRequest(data: data, error: error))
+            OperationQueue.main.addOperation {
+                completion(self.processCategoriesRequest(data: data, error: error))
+            }
         }
         task.resume()
     }
     
-    func processCategoriesRequest(data: Data?, error: Error?) -> CategoryResult {
+    func createLesson(categoryId: Int, completion: @escaping (LessonRequestResult) -> Void) {
+        let urlString = String(format: kCreateLessonURL, categoryId)
+        let infoDict = ["auth_token": DataStore.shared.loggedInUser?.auth_token ?? ""]
+        guard let request = makeURLRequest(urlString: urlString, parameters: infoDict,
+            method: .post) else {
+            completion(.failure(APIServiceError.errorCreateURLRequest))
+            return
+        }
+        let task = session.dataTask(with: request) {
+            (data, response, error) in
+            OperationQueue.main.addOperation {
+                completion(self.processLessonRequest(data: data, error: error))
+            }
+        }
+        task.resume()
+    }
+    
+    private func processCategoriesRequest(data: Data?, error: Error?) -> CategoryRequestResult {
         guard let jsonData = data else {
             return .failure(error!)
         }
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData,
-            options: [])
+                options: [])
             guard
                 let jsonDictionary = jsonObject as? [AnyHashable:Any],
-                let categories = jsonDictionary["categories"] as? [[String:Any]]
+                let categories = jsonDictionary["categories"] as? [[String:Any]],
+                let totalPages = jsonDictionary["total_pages"] as? Int
                 else {
                 return .failure(APIServiceError.errorParseJSON)
             }
+            Category.totalPages = totalPages
             var finalCategories = [Category]()
             for categoriesDictionary in categories {
                 let category = Category(dictionary: categoriesDictionary)
@@ -61,6 +83,25 @@ class LessonService: APIService {
                 return .failure(APIServiceError.errorParseJSON)
             }
             return .success(finalCategories)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    private func processLessonRequest(data: Data?, error: Error?) -> LessonRequestResult {
+        guard let jsonData = data else {
+            return .failure(error!)
+        }
+        do {
+            let jsonObject = try JSONSerialization.jsonObject(with: jsonData,
+                options: [])
+            guard
+                let jsonDictionary = jsonObject as? [AnyHashable:Any],
+                let lessonDictionary = jsonDictionary["lesson"] as? [String:Any]
+                else {
+                    return .failure(APIServiceError.errorParseJSON)
+            }
+            return .success(Lesson(dictionary: lessonDictionary))
         } catch {
             return .failure(error)
         }
