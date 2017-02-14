@@ -18,7 +18,6 @@ let kLoggedInUserKey = "com.framgia.E-Learing.loggedInUserJSON"
 
 let kEmailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
 let kMinimumPasswordLength = 6
-//let kInvalidRetypePasswordMessage = "InvalidRetypePasswordMessage".localized
 
 // MARK: - Constants for Lesson
 

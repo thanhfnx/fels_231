@@ -16,7 +16,8 @@ enum ViewTag: Int {
     case retypePasswordTextField = 4
 }
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate,
+    GIDSignInDelegate, GIDSignInUIDelegate {
 
     // MARK: - IBOutlet
 
@@ -26,6 +27,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,6 +44,49 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.view.viewWithTag(tag)?.becomeFirstResponder()
             })
         })
+    }
+    
+    // MARK: - GIDSignInDelegate
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+        withError error: Error!) {
+        if error != nil {
+            return
+        }
+        guard
+            let id = user.authentication.idToken,
+            let name = user.profile.name,
+            let email = user.profile.email,
+            let avatar = user.profile.imageURL(withDimension: 400)
+            else {
+            return
+        }
+        if let user = User(email: email, name: name, avatar: avatar.absoluteString) {
+            self.indicatorView?.isHidden = false
+            UserService.shared.loginWithSocial(user: user, provider: "google",
+                socialId: id, complete: { [weak self] (message, result) in
+                self?.indicatorView?.isHidden = true
+                guard let user = result else {
+                    if let message = message, !message.isEmpty {
+                        self?.show(message: message, title: nil, completion: nil)
+                    }
+                    return
+                }
+                DataStore.shared.loggedInUser = user
+                self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
+                    sender: self)
+            })
+        }
+    }
+    
+    // MARK: - GIDUISignInDelegate
+    
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - UITextFieldDelegate
@@ -126,7 +172,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 if let user = User(email: email, name: name, avatar: url) {
-                    print(user.email)
                     UserService.shared.loginWithSocial(user: user, provider: "facebook",
                         socialId: id, complete: { (message, result) in
                         self?.indicatorView?.isHidden = true
@@ -145,8 +190,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func logInWithGoogleButtonTapped(_ sender: UIButton) {
-        // TODO: Sign in with Google
+    @IBAction func logInWithGoogleButtonTapped(_ sender: GIDSignInButton) {
+        self.view.endEditing(true)
+        self.indicatorView?.isHidden = false
+        GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func tapGestureRecognized(_ sender: UITapGestureRecognizer) {

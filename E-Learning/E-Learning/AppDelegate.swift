@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func preProcessLogIn() {
+    fileprivate func preProcessLogIn() {
         // TODO: Remove this line in future
         UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
         let storyboardName: String
@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.preProcessLogIn()
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
         FBSDKApplicationDelegate.sharedInstance().application(application,
             didFinishLaunchingWithOptions: launchOptions)
         return true
@@ -43,7 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL,
         options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(app,
-            open: url, options: options)
+            open: url, options: options) || GIDSignIn.sharedInstance()
+            .handle(url, sourceApplication: options[.sourceApplication] as? String,
+            annotation: options[.annotation])
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
