@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Activity: NSObject {
+class Activity: JSONObject {
 
     var id: Int = 0
     var content: String = ""
@@ -16,7 +16,7 @@ class Activity: NSObject {
     
 }
 
-class User: NSObject {
+class User: JSONObject {
 
     var id: Int = 0
     var name: String = ""
@@ -30,21 +30,20 @@ class User: NSObject {
     var learned_words = 0
     var activities = [Activity]()
     
-    override init() {
-        super.init()
-    }
-    
     override func setValue(_ value: Any?, forKey key: String) {
-        if (key == "activities") {
-            // TODO
-        } else {
+        guard key == "activities" else {
             super.setValue(value, forKey: key)
+            return
+        }
+        if let dictionary = value as? [[String: Any]] {
+            self.activities = dictionary.map({
+                return Activity(keyedValues: $0)
+            })
         }
     }
 
-    init(keyedValues: [String: Any]) {
+    override init() {
         super.init()
-        setValuesForKeys(keyedValues)
     }
     
     init?(email: String?, name: String?, avatar: String?) {

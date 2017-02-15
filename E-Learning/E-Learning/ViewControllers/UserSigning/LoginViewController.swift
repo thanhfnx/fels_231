@@ -178,14 +178,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate,
                         socialId: id, complete: { (message, result) in
                         self?.indicatorView?.isHidden = true
                         guard let user = result else {
-                        if let message = message, !message.isEmpty {
-                            self?.show(message: message, title: nil, completion: nil)
+                            if let message = message, !message.isEmpty {
+                                self?.show(message: message, title: nil, completion: nil)
+                            }
+                            return
                         }
-                        return
-                    }
-                    DataStore.shared.loggedInUser = user
-                    self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
-                        sender: self)
+                        DataStore.shared.loggedInUser = user
+                        self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
+                            sender: self)
                     })
                 }
             }
