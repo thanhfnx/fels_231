@@ -1,0 +1,39 @@
+
+/* Class = "UITextField"; placeholder = "Re-type password"; ObjectID = "4iI-gJ-Axa"; */
+"4iI-gJ-Axa.placeholder" = "Re-type password";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "BoG-8A-Zy1"; */
+"BoG-8A-Zy1.text" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Sign Up Now"; ObjectID = "Mku-iE-GIp"; */
+"Mku-iE-GIp.normalTitle" = "Sign Up Now";
+
+/* Class = "UILabel"; text = "E-Learning System"; ObjectID = "Rue-Gf-WrS"; */
+"Rue-Gf-WrS.text" = "E-Learning System";
+
+/* Class = "UILabel"; text = "Or Sign in with"; ObjectID = "RzW-jM-84H"; */
+"RzW-jM-84H.text" = "Or Sign in with";
+
+/* Class = "UILabel"; text = "Don't have an account"; ObjectID = "V3G-Qf-Nlp"; */
+"V3G-Qf-Nlp.text" = "Don't have an account";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "ZFQ-4H-Xvy"; */
+"ZFQ-4H-Xvy.normalTitle" = "Sign In";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ZG2-kL-Mc7"; */
+"ZG2-kL-Mc7.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ZSt-xI-hh2"; */
+"ZSt-xI-hh2.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Full name"; ObjectID = "aYF-Jy-yuc"; */
+"aYF-Jy-yuc.placeholder" = "Full name";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "bEE-PC-BVk"; */
+"bEE-PC-BVk.normalTitle" = "Sign Up";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "br7-0E-UUu"; */
+"br7-0E-UUu.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "xnX-lW-r1X"; */
+"xnX-lW-r1X.placeholder" = "Email";

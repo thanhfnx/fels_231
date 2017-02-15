@@ -16,7 +16,7 @@
         <scene sceneID="SCi-a1-r2t">
             <objects>
                 <navigationController navigationBarHidden="YES" id="rkx-Zq-KOh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="69f-hA-2fc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="69f-hA-2fc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -215,6 +215,7 @@
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="i8u-Hi-c6c" firstAttribute="centerY" secondItem="thE-RT-YIh" secondAttribute="centerY" id="RWf-JE-Og6"/>
                                                 <constraint firstItem="i8u-Hi-c6c" firstAttribute="centerX" secondItem="thE-RT-YIh" secondAttribute="centerX" id="Wn9-LZ-eWT"/>
@@ -570,6 +571,9 @@
                             <constraint firstItem="FfY-hD-Eyf" firstAttribute="leading" secondItem="FXX-Pm-jpt" secondAttribute="leading" id="pLb-5a-Phl"/>
                             <constraint firstItem="Y5m-ey-vB4" firstAttribute="top" secondItem="FXX-Pm-jpt" secondAttribute="top" id="zNQ-rR-FP3"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wpB-4F-Ey1" appends="YES" id="2a7-xm-dy7"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="AgN-5H-kqz"/>
                     <connections>
@@ -587,6 +591,11 @@
                         <action selector="tapGestureRecognized:" destination="wRg-zZ-XWb" id="X14-36-vh3"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="wpB-4F-Ey1">
+                    <connections>
+                        <action selector="swipeGestureRecognized:" destination="wRg-zZ-XWb" id="bmn-Pz-dgK"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="823" y="56"/>
         </scene>

@@ -10,7 +10,7 @@
 
 "Categories" = "Các danh mục";
 
-// MARK: - String for DataValidator
+// MARK: - Strings for DataValidator
 
 "EmptyFieldMessage" = "%@ không được để trống!";
 "InvalidFormatFieldMessage" = "%@ không đúng định dạng!";
@@ -20,5 +20,8 @@
 "RetypePassword" = "Nhập lại mật khẩu";
 "FullName" = "Họ tên";
 
-// MARK: - String for APIService
+// MARK: - Strings for APIService
+
 "UnknownError" = "Lỗi không xác định!";
+"Alert" = "Thông báo";
+"Invalid email/password combination" = "Email hoặc mật khẩu không chính xác";

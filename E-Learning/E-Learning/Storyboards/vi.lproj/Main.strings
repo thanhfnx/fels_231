@@ -1,0 +1,39 @@
+
+/* Class = "UITextField"; placeholder = "Re-type password"; ObjectID = "4iI-gJ-Axa"; */
+"4iI-gJ-Axa.placeholder" = "Nhập lại mật khẩu";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "BoG-8A-Zy1"; */
+"BoG-8A-Zy1.text" = "Đăng Ký";
+
+/* Class = "UIButton"; normalTitle = "Sign Up Now"; ObjectID = "Mku-iE-GIp"; */
+"Mku-iE-GIp.normalTitle" = "Đăng Ký Ngay";
+
+/* Class = "UILabel"; text = "E-Learning System"; ObjectID = "Rue-Gf-WrS"; */
+"Rue-Gf-WrS.text" = "E-Learning System";
+
+/* Class = "UILabel"; text = "Or Sign in with"; ObjectID = "RzW-jM-84H"; */
+"RzW-jM-84H.text" = "Hoặc Đăng nhập với";
+
+/* Class = "UILabel"; text = "Don't have an account"; ObjectID = "V3G-Qf-Nlp"; */
+"V3G-Qf-Nlp.text" = "Chưa có tài khoản";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "ZFQ-4H-Xvy"; */
+"ZFQ-4H-Xvy.normalTitle" = "Đăng Nhập";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ZG2-kL-Mc7"; */
+"ZG2-kL-Mc7.placeholder" = "Mật khẩu";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ZSt-xI-hh2"; */
+"ZSt-xI-hh2.placeholder" = "Mật khẩu";
+
+/* Class = "UITextField"; placeholder = "Full name"; ObjectID = "aYF-Jy-yuc"; */
+"aYF-Jy-yuc.placeholder" = "Họ và tên";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "bEE-PC-BVk"; */
+"bEE-PC-BVk.normalTitle" = "Đăng Ký";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "br7-0E-UUu"; */
+"br7-0E-UUu.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "xnX-lW-r1X"; */
+"xnX-lW-r1X.placeholder" = "Email";

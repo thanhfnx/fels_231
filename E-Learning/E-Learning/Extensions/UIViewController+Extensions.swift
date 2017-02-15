@@ -15,7 +15,7 @@ extension UIViewController {
         guard let message = message else {
             return
         }
-        let alertController = UIAlertController(title: title ?? "Alert",
+        let alertController = UIAlertController(title: title ?? "Alert".localized,
             message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel,
             handler: completion)
