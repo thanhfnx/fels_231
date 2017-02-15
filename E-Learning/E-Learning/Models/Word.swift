@@ -14,6 +14,7 @@ class Word {
     var resultId: Int?
     var content: String?
     var answers = [Answer]()
+    weak var selectedAnswer: Answer?
 
     init(dictionary: Dictionary<String, Any>) {
         id = dictionary.intForKey("id")

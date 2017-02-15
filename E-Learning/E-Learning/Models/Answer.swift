@@ -21,4 +21,17 @@ class Answer {
             isCorrect = value
         }
     }
+    
+}
+
+extension Answer: Equatable {
+    
+    public static func ==(lhs: Answer, rhs: Answer) -> Bool {
+        if let lhsId = lhs.id, let rhsId = rhs.id {
+            return lhsId == rhsId
+        } else {
+            return false
+        }
+    }
+    
 }

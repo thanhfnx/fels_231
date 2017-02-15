@@ -10,11 +10,11 @@ import UIKit
 
 class CategoriesViewController: UITableViewController {
         
-    var categories = [Category]()
-    var lessonService = LessonService()
+    private var categories = [Category]()
+    private var lessonService = LessonService()
     private var currentPage = 1
     private let perPage = 10
-    var lastItemReached = false
+    private var lastItemReached = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +96,8 @@ class CategoriesViewController: UITableViewController {
             kResultViewControllerId)
         present(resultViewController!, animated: true, completion: nil)
     }
+    
+    // MARK: - Fetch data handling
     
     func refreshList() {
         lessonService.fetchCategories(withInfo: ["page": "1", "per_page": "\(perPage)"]) {
