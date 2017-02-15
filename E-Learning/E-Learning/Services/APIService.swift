@@ -71,6 +71,10 @@ class APIService {
             request.httpBody = paramsString.data(using: .utf8,
                 allowLossyConversion: true)
         }
+        if method == .patch {
+            request.setValue("multipart/form-data",
+                forHTTPHeaderField: "Content-Type")
+        }
         request.httpMethod = method.rawValue
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest)

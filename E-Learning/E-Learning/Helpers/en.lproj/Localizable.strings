@@ -10,7 +10,7 @@
 
 "Categories" = "Categories";
 
-// MARK: - String for DataValidator
+// MARK: - Strings for DataValidator
 
 "EmptyFieldMessage" = "%@ can't be empty!";
 "InvalidFormatFieldMessage" = "%@ format is invalid!";
@@ -20,5 +20,8 @@
 "RetypePassword" = "Re-type password";
 "FullName" = "Full name";
 
-// MARK: - String for APIService
+// MARK: - Strings for APIService
+
 "UnknownError" = "Uknown Error!";
+"Alert" = "Alert";
+"Invalid email/password combination" = "Invalid email/password combination";

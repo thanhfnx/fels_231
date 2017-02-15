@@ -89,4 +89,8 @@ class RegisterViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    @IBAction func swipeGestureRecognized(_ sender: UISwipeGestureRecognizer) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
 }

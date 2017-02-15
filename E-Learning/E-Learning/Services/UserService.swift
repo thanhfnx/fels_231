@@ -23,7 +23,7 @@ class UserService: APIService {
             success: { (json) in
             guard let userJSON = json["user"] as? [String: Any] else {
                 if let message = json["email"] as? String {
-                    complete(message + "!", nil)
+                    complete(message.localized + "!", nil)
                 } else {
                     complete("UnknownError".localized, nil)
                 }
@@ -48,7 +48,7 @@ class UserService: APIService {
             success: { (json) in
             guard let userJSON = json["user"] as? [String: Any] else {
                 if let message = json["message"] as? String {
-                    complete(message + "!", nil)
+                    complete(message.localized + "!", nil)
                 } else {
                     complete("UnknownError".localized, nil)
                 }
@@ -76,7 +76,7 @@ class UserService: APIService {
             success: { (json) in
             guard let userJSON = json["user"] as? [String: Any] else {
                 if let message = json["message"] as? String {
-                    complete(message + "!", nil)
+                    complete(message.localized + "!", nil)
                 } else {
                     complete("UnknownError".localized, nil)
                 }
