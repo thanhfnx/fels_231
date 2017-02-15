@@ -15,9 +15,14 @@ class HomeViewController: UIViewController {
     @IBOutlet var userEmailLabel: UILabel!
     @IBOutlet var wordLearnedLabel: UILabel!
     @IBOutlet var historyTableView: UITableView!
-
+    @IBOutlet var wordsButtonTitle: UIButton!
+    @IBOutlet var lessonButtonTitle: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = kHomeNavigationTitle
+        wordsButtonTitle.setTitle(kWordsButtonTitle, for: .normal)
+        lessonButtonTitle.setTitle(kLessonButtonTitle, for: .normal)
         self.setValues()
     }
     
@@ -45,5 +50,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }

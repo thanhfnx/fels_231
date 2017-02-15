@@ -9,12 +9,6 @@
 import UIKit
 
 class UpdateProfileViewController: UIViewController {
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var oldPasswordLabel: UILabel!
-    @IBOutlet weak var newPasswordLabel: UILabel!
-    @IBOutlet weak var confirmPasswordLabel: UILabel!
-    @IBOutlet weak var fullnameLabel: UILabel!
-    @IBOutlet weak var avatarLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
@@ -22,7 +16,24 @@ class UpdateProfileViewController: UIViewController {
     @IBOutlet weak var fullnameTextField: UITextField!
     @IBOutlet weak var showAvatar: UIImageView!
     
-    @IBAction func updateProfile(_ sender: UIBarButtonItem) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setValues()
+    }
+    
+    fileprivate func setValues() {
+        let user = DataStore.shared.loggedInUser
+        self.showAvatar?.imageFrom(urlString: user?.avatar)
+        self.fullnameTextField?.text = user?.name
+        self.emailTextField?.text = user?.email
+        // TODO: Update more field
+    }
+
+    @IBAction func resetButtonTapped(_ sender: Any) {
+        setValues()
+    }
+    
+    @IBAction func updateButtonTapped(_ sender: Any) {
     }
     
     @IBAction func changeAvatar(_ sender: Any) {
