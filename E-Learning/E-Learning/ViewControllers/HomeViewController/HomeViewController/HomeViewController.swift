@@ -18,12 +18,16 @@ class HomeViewController: UIViewController {
     @IBOutlet var wordsButtonTitle: UIButton!
     @IBOutlet var lessonButtonTitle: UIButton!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.setValues()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = kHomeNavigationTitle
         wordsButtonTitle.setTitle(kWordsButtonTitle, for: .normal)
         lessonButtonTitle.setTitle(kLessonButtonTitle, for: .normal)
-        self.setValues()
+//        self.setValues()
     }
     
     fileprivate func setValues() {
