@@ -134,7 +134,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate,
     @IBAction func logInWithFacebookButtonTapped(_ sender: UIButton) {
         self.view.endEditing(true)
         self.indicatorView?.isHidden = false
-        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"],
+        let facebookLogin = FBSDKLoginManager()
+        facebookLogin.logOut()
+        facebookLogin.logIn(withReadPermissions: ["public_profile", "email"],
             from: self) { [weak self] (result, error) in
             if let error = error {
                 self?.indicatorView?.isHidden = true
