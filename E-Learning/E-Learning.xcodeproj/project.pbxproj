@@ -30,6 +30,7 @@
 		9221BA721E4AD3CE00E26A28 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA711E4AD3CE00E26A28 /* Lesson.swift */; };
 		9221BA741E4AD51B00E26A28 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA731E4AD51B00E26A28 /* Word.swift */; };
 		9221BA761E4AD5BF00E26A28 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA751E4AD5BF00E26A28 /* Answer.swift */; };
+		924EA81E1E53EAA300E4D14A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924EA81D1E53EAA300E4D14A /* Home.storyboard */; };
 		925A70801E4C0ACF00B4AA02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A707F1E4C0ACF00B4AA02 /* Constants.swift */; };
 		925A70821E4C0CBB00B4AA02 /* DataValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A70811E4C0CBB00B4AA02 /* DataValidator.swift */; };
 		925A70861E4C1DD000B4AA02 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A70851E4C1DD000B4AA02 /* UIViewController+Extensions.swift */; };
@@ -43,7 +44,6 @@
 		92D6B99B1E5179E0004F565B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6B99A1E5179E0004F565B /* DataStore.swift */; };
 		92D6B99D1E517B09004F565B /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6B99C1E517B09004F565B /* UIImageView+URL.swift */; };
 		92F5E51A1E52B5A1007824E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F5E5191E52B5A1007824E6 /* GoogleService-Info.plist */; };
-		A52FF4391E4C497700EEADE2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52FF4381E4C497700EEADE2 /* Home.storyboard */; };
 		A52FF4451E4C4BBE00EEADE2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FF4431E4C4BBE00EEADE2 /* RegisterViewController.swift */; };
 		DB54928BDD08FD3277D84469 /* Pods_E_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE713528E8AC9B1DE849E995 /* Pods_E_Learning.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +73,7 @@
 		9221BA731E4AD51B00E26A28 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		9221BA751E4AD5BF00E26A28 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		922AE3711E52DFD600384274 /* E-Learning-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "E-Learning-Bridging-Header.h"; sourceTree = "<group>"; };
+		924EA81D1E53EAA300E4D14A /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		925A707F1E4C0ACF00B4AA02 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		925A70811E4C0CBB00B4AA02 /* DataValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidator.swift; sourceTree = "<group>"; };
 		925A70851E4C1DD000B4AA02 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		92D6B99A1E5179E0004F565B /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		92D6B99C1E517B09004F565B /* UIImageView+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		92F5E5191E52B5A1007824E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A52FF4381E4C497700EEADE2 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A52FF4421E4C4BBE00EEADE2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A52FF4431E4C4BBE00EEADE2 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A93C266E01F5F169A88536EA /* Pods-E-Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-E-Learning/Pods-E-Learning.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 		92039FF81E4BFC29000481C5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				924EA81D1E53EAA300E4D14A /* Home.storyboard */,
 				9281C3B41E4D544B0061ED5F /* Main.storyboard */,
-				A52FF4381E4C497700EEADE2 /* Home.storyboard */,
 				113503331E4C44330003CC49 /* Lesson.storyboard */,
 				92039FFB1E4BFFBD000481C5 /* LaunchScreen.storyboard */,
 			);
@@ -391,7 +391,7 @@
 				9281C3B51E4D544B0061ED5F /* Main.storyboard in Resources */,
 				929C6BD71E4ACC2400B11086 /* Assets.xcassets in Resources */,
 				559598A21E5152A400C48E59 /* WordsListCell.xib in Resources */,
-				A52FF4391E4C497700EEADE2 /* Home.storyboard in Resources */,
+				924EA81E1E53EAA300E4D14A /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

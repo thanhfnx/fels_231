@@ -50,7 +50,7 @@ class CategoriesViewController: UITableViewController {
         guard let categoryCell = cell as? CategoryCell else {
             return
         }
-        categoryCell.update(with: categories[indexPath.row])
+        categoryCell.category = categories[indexPath.row]
         if !lastItemReached && (indexPath.row == self.categories.count - 1) {
             lastItemReached = true
             loadMoreList()
