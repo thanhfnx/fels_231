@@ -38,4 +38,32 @@ extension Dictionary {
         return self[key] as? Dictionary<AnyHashable, Any>
     }
     
+    func toHTTPFormDataDictionary() -> Dictionary {
+        var resultDictionary = Dictionary()
+        for (key, value) in self {
+            if let valueDict = value as? Dictionary {
+                makeDict(startKey: key, resultDictionary: &resultDictionary,
+                    source: valueDict)
+            } else {
+                resultDictionary[key] = value
+            }
+        }
+        return resultDictionary
+    }
+    
+    private func makeDict(startKey: Key, resultDictionary: inout Dictionary,
+        source: Dictionary) {
+        for (key, value) in source {
+            let keyString = "\(startKey)[\(key)]"
+            if let newKey = keyString as? Key {
+                if let valueDict = value as? Dictionary {
+                    makeDict(startKey: newKey, resultDictionary: &resultDictionary,
+                        source: valueDict)
+                } else {
+                    resultDictionary[newKey] = value
+                }
+            }
+        }
+    }
+    
 }

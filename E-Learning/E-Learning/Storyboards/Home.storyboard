@@ -166,6 +166,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="2TI-SA-EFY" kind="show" id="tBA-dj-ygt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajB-Sq-smL">
                                         <rect key="frame" x="25" y="15.5" width="150" height="29"/>
@@ -587,6 +590,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2v8-0U-OQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1672.8" y="658.92053973013503"/>
+        </scene>
+        <!--Lesson-->
+        <scene sceneID="cc5-4c-HI4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Lesson" id="2TI-SA-EFY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W7q-dr-ldA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2180" y="339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ROc-78-6l6">

@@ -44,6 +44,7 @@ class APIService {
             request.httpBody = paramsString.data(using: .utf8,
                 allowLossyConversion: true)
         }
+        request.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
         request.httpMethod = method.rawValue
         return request
     }
