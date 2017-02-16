@@ -26,3 +26,11 @@ class Lesson {
     }
     
 }
+
+extension Lesson {
+    
+    var numberOfRightAnswer: Int {
+        return words.filter { $0.isAnswerRight }.count
+    }
+    
+}

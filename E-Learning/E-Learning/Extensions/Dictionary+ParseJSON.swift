@@ -38,7 +38,7 @@ extension Dictionary {
         return self[key] as? Dictionary<AnyHashable, Any>
     }
     
-    func toHTTPFormDataDictionary() -> Dictionary {
+    func toHttpFormDataString() -> String {
         var resultDictionary = Dictionary()
         for (key, value) in self {
             if let valueDict = value as? Dictionary {
@@ -48,7 +48,14 @@ extension Dictionary {
                 resultDictionary[key] = value
             }
         }
-        return resultDictionary
+        var formDataString = ""
+        for (key, value) in resultDictionary {
+            formDataString += "&\(key)=\(value)"
+        }
+        if !formDataString.isEmpty {
+            formDataString.remove(at: formDataString.startIndex)
+        }
+        return formDataString
     }
     
     private func makeDict(startKey: Key, resultDictionary: inout Dictionary,
