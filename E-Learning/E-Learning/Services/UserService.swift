@@ -91,4 +91,58 @@ class UserService: APIService {
         }
     }
     
+    func updateProfile(user: User, complete: @escaping (String?, User?) -> ()) {
+        let params: [String: Any] = [
+            "user[name]": user.name,
+            "user[email]": user.email,
+            "user[password]": user.password,
+            "user[password_confirmation]": user.password,
+            "user[avatar]": user.avatar,
+            "auth_token": user.auth_token
+        ]
+        let url = String(format: kUpdateProfileURL, user.id)
+        sendRequest(url: url, method: .patch, params: params, success: { (json) in
+            guard let userJSON = json["user"] as? [String: Any] else {
+                if let message = json["error"] as? String {
+                    complete(message.localized + "!", nil)
+                } else {
+                    complete("UnknownError".localized, nil)
+                }
+                return
+            }
+            UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
+            UserDefaults.standard.set(userJSON, forKey: kLoggedInUserKey)
+            let result = User(keyedValues: userJSON)
+            complete(nil, result)
+        }) { (error) in
+            complete(error,nil)
+        }
+    }
+    
+//    func changePassword(user: User, complete: @escaping (String?, User?) -> ()) {
+//        let params: [String: Any] = [
+//            "user[name]": user.name,
+//            "user[email]": user.email,
+//            "user[password]": user.password,
+//            "user[password_confirmation]": user.password,
+//            "user[avatar]": user.avatar,
+//            "auth_token": user.auth_token
+//        ]
+//        let url = String(format: kUpdateProfileURL, user.id)
+//        sendRequest(url: url, method: .patch, params: params, success: { (json) in
+//            guard let userJSON = json["user"] as? [String: Any] else {
+//                if let message = json["error"] as? String {
+//                    complete(message.localized + "!", nil)
+//                } else {
+//                    complete("UnknownError".localized, nil)
+//                }
+//                return
+//            }
+//            UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
+//            UserDefaults.standard.set(userJSON, forKey: kLoggedInUserKey)
+//            let result = User(keyedValues: userJSON)
+//            com
+//        }
+//    }
+    
 }

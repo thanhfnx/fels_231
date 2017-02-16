@@ -14,9 +14,9 @@ class WordsListViewController: UIViewController {
     @IBOutlet weak var filterViewHeight: NSLayoutConstraint!
     @IBOutlet weak var filterPickerView: UIPickerView!
     let wordsListCellId = "WordsListCellId"
-    
     var categories = ["Item1", "Item2", "Item3", "Item4", "Item5"]
     let wordStatuses = ["All", "Learned", "Not Learned"]
+    var words = [Word]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ extension WordsListViewController: UITableViewDataSource, UITableViewDelegate {
 	
     func tableView(_ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.words.count
     }
     
     func tableView(_ tableView: UITableView,
