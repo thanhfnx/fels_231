@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum CategoryRequestError: Error {
+    case outOfCategories
+}
+
 enum CategoryRequestResult {
     case success([Category])
     case failure(Error)
@@ -24,8 +28,14 @@ class LessonService: APIService {
         return URLSession(configuration: .default)
     }()
     
-    func fetchCategories(withInfo info: [String:String],
+    func fetchCategories(withInfo info: [String: Any],
         completion: @escaping (CategoryRequestResult) -> Void) {
+        if let page = info["page"] as? Int {
+            if page <= Category.currentPage {
+                completion(.success(DataStore.shared.categories))
+                return
+            }
+        }
         var infoDict = info
         infoDict["auth_token"] = DataStore.shared.loggedInUser?.auth_token ?? ""
         guard let request = makeURLRequest(urlString: kGetCategoriesURL,
@@ -77,10 +87,15 @@ class LessonService: APIService {
             var finalCategories = [Category]()
             for categoriesDictionary in categories {
                 let category = Category(dictionary: categoriesDictionary)
-                finalCategories.append(category)
+                if DataStore.shared.categories.index(of: category) == nil {
+                    DataStore.shared.categories.append(category)
+                    finalCategories.append(category)
+                }
             }
             if finalCategories.isEmpty && !categories.isEmpty {
                 return .failure(APIServiceError.errorParseJSON)
+            } else if finalCategories.isEmpty {
+                return .failure(CategoryRequestError.outOfCategories)
             }
             return .success(finalCategories)
         } catch {

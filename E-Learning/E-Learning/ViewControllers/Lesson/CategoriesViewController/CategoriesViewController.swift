@@ -12,8 +12,6 @@ class CategoriesViewController: UITableViewController {
         
     private var categories = [Category]()
     private var lessonService = LessonService()
-    private var currentPage = 1
-    private let perPage = 10
     private var lastItemReached = false
     
     override func viewDidLoad() {
@@ -100,9 +98,9 @@ class CategoriesViewController: UITableViewController {
     // MARK: - Fetch data handling
     
     func refreshList() {
-        lessonService.fetchCategories(withInfo: ["page": "1", "per_page": "\(perPage)"]) {
+        lessonService.fetchCategories(withInfo: ["page": 1,
+            "per_page": "\(Category.perPage)"]) {
             (result) in
-            self.currentPage = 1
             switch result {
             case let .success(categories):
                 self.categories = categories
@@ -116,14 +114,13 @@ class CategoriesViewController: UITableViewController {
     }
     
     func loadMoreList() {
-        lessonService.fetchCategories(withInfo: ["page": "\(currentPage + 1)",
-            "per_page": "\(perPage)"]) {
+        lessonService.fetchCategories(withInfo: ["page": "\(Category.currentPage + 1)",
+            "per_page": "\(Category.perPage)"]) {
             (result) in
             switch result {
             case let .success(categories):
                 let lastIndex = self.categories.count
                 self.categories.append(contentsOf: categories)
-                self.currentPage += 1
                 var newIndexPaths = [IndexPath]()
                 for index in 0..<categories.count {
                     newIndexPaths.append(IndexPath(row: index + lastIndex, section: 0))

@@ -18,7 +18,6 @@
 		113503501E4C816B0003CC49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 113503521E4C816B0003CC49 /* Localizable.strings */; };
 		117B2C351E518A0200DA1C37 /* Dictionary+ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117B2C341E518A0200DA1C37 /* Dictionary+ParseJSON.swift */; };
 		117B2C371E51943E00DA1C37 /* LessonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117B2C361E51943E00DA1C37 /* LessonService.swift */; };
-		11C795C21E53F21E00327546 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C795C11E53F21E00327546 /* Home.storyboard */; };
 		553DD0541E554BA1006B6517 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553DD0531E554BA1006B6517 /* WordService.swift */; };
 		5595989F1E5152A400C48E59 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559598981E5152A400C48E59 /* HomeViewController.swift */; };
 		559598A01E5152A400C48E59 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5595989A1E5152A400C48E59 /* UpdateProfileViewController.swift */; };
@@ -63,7 +62,6 @@
 		113503511E4C816B0003CC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		117B2C341E518A0200DA1C37 /* Dictionary+ParseJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+ParseJSON.swift"; sourceTree = "<group>"; };
 		117B2C361E51943E00DA1C37 /* LessonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonService.swift; sourceTree = "<group>"; };
-		11C795C11E53F21E00327546 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		553DD0531E554BA1006B6517 /* WordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
 		559598981E5152A400C48E59 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5595989A1E5152A400C48E59 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
@@ -364,7 +362,7 @@
 				TargetAttributes = {
 					929C6BCB1E4ACC2400B11086 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = HG9LP32JL6;
+						DevelopmentTeam = K6ZTG96ZCP;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -620,7 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = HG9LP32JL6;
+				DEVELOPMENT_TEAM = K6ZTG96ZCP;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";
@@ -637,7 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = HG9LP32JL6;
+				DEVELOPMENT_TEAM = K6ZTG96ZCP;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";
