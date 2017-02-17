@@ -1,0 +1,54 @@
+
+/* Class = "UISegmentedControl"; 1pz-Ju-2rc.segmentTitles[0] = "Summary"; ObjectID = "1pz-Ju-2rc"; */
+"1pz-Ju-2rc.segmentTitles[0]" = "Tổng kết";
+
+/* Class = "UISegmentedControl"; 1pz-Ju-2rc.segmentTitles[1] = "Activity Log"; ObjectID = "1pz-Ju-2rc"; */
+"1pz-Ju-2rc.segmentTitles[1]" = "Nhật ký hoạt động";
+
+/* Class = "UIButton"; normalTitle = "All"; ObjectID = "62d-Vt-qjg"; */
+"62d-Vt-qjg.normalTitle" = "Tất cả";
+
+/* Class = "UINavigationItem"; title = "Words"; ObjectID = "A9i-CP-sB6"; */
+"A9i-CP-sB6.title" = "Danh sách từ";
+
+/* Class = "UIButton"; normalTitle = "Lesson"; ObjectID = "DdS-hp-jU7"; */
+"DdS-hp-jU7.normalTitle" = "Bài học";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "EhB-zJ-kV9"; */
+"EhB-zJ-kV9.title" = "Hồ sơ";
+
+/* Class = "UIButton"; normalTitle = "Change"; ObjectID = "Nef-4h-bdR"; */
+"Nef-4h-bdR.normalTitle" = "Thay đổi";
+
+/* Class = "UITextField"; placeholder = "Re-type password"; ObjectID = "OPc-Eh-fsf"; */
+"OPc-Eh-fsf.placeholder" = "Nhập lại mật khẩu";
+
+/* Class = "UITextField"; placeholder = "New password"; ObjectID = "QHN-dU-aIi"; */
+"QHN-dU-aIi.placeholder" = "Mật khẩu mới";
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "Rzv-9j-lpz"; */
+"Rzv-9j-lpz.title" = "Trang chủ";
+
+/* Class = "UIButton"; normalTitle = "Words"; ObjectID = "ajB-Sq-smL"; */
+"ajB-Sq-smL.normalTitle" = "Danh sách từ";
+
+/* Class = "UIButton"; normalTitle = "All"; ObjectID = "ao3-bh-HkY"; */
+"ao3-bh-HkY.normalTitle" = "Tất cả";
+
+/* Class = "UITextField"; placeholder = "Full name"; ObjectID = "bR7-WV-d3d"; */
+"bR7-WV-d3d.placeholder" = "Họ và tên";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "hKb-Ou-e1u"; */
+"hKb-Ou-e1u.normalTitle" = "Reset";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "igC-MT-gTR"; */
+"igC-MT-gTR.title" = "Huỷ";
+
+/* Class = "UIBarButtonItem"; title = "Sign out"; ObjectID = "jzg-GO-Uvv"; */
+"jzg-GO-Uvv.title" = "Đăng xuất";
+
+/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "lHj-tv-xSc"; */
+"lHj-tv-xSc.normalTitle" = "Cập nhật";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "r8N-B4-AOu"; */
+"r8N-B4-AOu.placeholder" = "Email";

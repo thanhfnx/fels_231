@@ -80,8 +80,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             DataStore.shared.loggedInUser = user
-            self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
-                sender: self)
+            self?.redirectToHome()
         }
     }
     
@@ -91,6 +90,18 @@ class RegisterViewController: UIViewController {
     
     @IBAction func swipeGestureRecognized(_ sender: UISwipeGestureRecognizer) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    fileprivate func redirectToHome() {
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let navigationController = storyboard.instantiateInitialViewController()
+        UIView.transition(with: window, duration: 0.5,
+            options: .transitionCurlDown, animations: {
+            window.rootViewController = navigationController
+        }, completion: nil)
     }
     
 }

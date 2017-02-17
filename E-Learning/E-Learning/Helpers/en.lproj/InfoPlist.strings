@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  E-Learning
+
+  Created by Thanh Nguyen on 2/17/17.
+  Copyright © 2017 Framgia. All rights reserved.
+*/
+
+"NSPhotoLibraryUsageDescription" = "E-Learning needs permission to access your photo library";
+"NSCameraUsageDescription" = "E-Learning needs permission to access your camera";

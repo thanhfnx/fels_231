@@ -25,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             storyboardName = "Main"
         }
-        let homeStoryBoard = UIStoryboard(name: storyboardName, bundle: nil)
-        let homeNavigationController = homeStoryBoard.instantiateInitialViewController()
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let navigationController = storyboard.instantiateInitialViewController()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = homeNavigationController
+        self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
 

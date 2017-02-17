@@ -25,3 +25,18 @@
 "UnknownError" = "Lỗi không xác định!";
 "Alert" = "Thông báo";
 "Invalid email/password combination" = "Email hoặc mật khẩu không chính xác";
+
+// MARK: - Strings for UpdateProfile
+
+"ChoosePhoto" = "Chọn ảnh";
+"ChangeAvatarMessage" = "Cài đặt ảnh đại diện mới";
+"TakeFromCameraActionTitle" = "Chọn từ máy ảnh";
+"TakeFromLibraryActionTitle" = "Chọn từ thư viện ảnh";
+"CancelActionTitle" = "Huỷ";
+"ConfirmLogOutMessage" = "Bạn có chắc chắn muốn đăng xuất?";
+"LogOutActionTitle" = "Đăng xuất";
+
+// MARK: - Strings for UpdateProfile
+
+"LearnedWords" = "Đã học %d từ";
+"OpenCameraErrorMessage" = "Có lỗi xảy ra! Không thể mở máy ảnh!";

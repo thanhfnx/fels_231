@@ -25,3 +25,18 @@
 "UnknownError" = "Uknown Error!";
 "Alert" = "Alert";
 "Invalid email/password combination" = "Invalid email/password combination";
+
+// MARK: - Strings for UpdateProfile
+
+"ChoosePhoto" = "Choose a photo";
+"ChangeAvatarMessage" = "Set new avatar";
+"TakeFromCameraActionTitle" = "Take from camera";
+"TakeFromLibraryActionTitle" = "Take from photo library";
+"CancelActionTitle" = "Cancel";
+"ConfirmLogOutMessage" = "Are you sure you want to sign out?";
+"LogOutActionTitle" = "Sign out";
+
+// MARK: - Strings for UpdateProfile
+
+"LearnedWords" = "Learned %d word(s)";
+"OpenCameraErrorMessage" = "Something went wrong! Can't open your camera!";

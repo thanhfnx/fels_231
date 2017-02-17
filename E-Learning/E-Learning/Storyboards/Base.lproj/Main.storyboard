@@ -297,7 +297,6 @@
                         <outlet property="indicatorView" destination="thE-RT-YIh" id="hH9-y5-B5J"/>
                         <outlet property="passwordTextField" destination="ZSt-xI-hh2" id="rZM-yT-bNw"/>
                         <segue destination="wRg-zZ-XWb" kind="show" identifier="goToRegister" id="sbd-ig-HwQ"/>
-                        <segue destination="vN7-jW-rNL" kind="presentation" identifier="goToHome" id="d5k-sv-HMN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2U-8b-gg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -308,14 +307,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-40.579710144927539" y="54.619565217391312"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="2S2-Hq-yLK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="vN7-jW-rNL" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C11-Kj-ddB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-41" y="488"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="P9O-mE-ecK">
@@ -582,7 +573,6 @@
                         <outlet property="indicatorView" destination="dQ1-lW-FoF" id="bRj-TR-fms"/>
                         <outlet property="passwordTextField" destination="ZG2-kL-Mc7" id="7tX-t0-F2t"/>
                         <outlet property="retypePasswordTextField" destination="4iI-gJ-Axa" id="3Th-oZ-tPB"/>
-                        <segue destination="vN7-jW-rNL" kind="presentation" identifier="goToHome" id="8oR-wy-R9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIL-fC-UQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -610,7 +600,4 @@
         <image name="ic_password" width="50" height="50"/>
         <image name="logo_main" width="441" height="441"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="8oR-wy-R9z"/>
-    </inferredMetricsTieBreakers>
 </document>

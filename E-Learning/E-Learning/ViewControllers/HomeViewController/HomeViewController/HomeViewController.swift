@@ -10,32 +10,31 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet var userAvatarImage: UIImageView!
-    @IBOutlet var userNameLabel: UILabel!
-    @IBOutlet var userEmailLabel: UILabel!
-    @IBOutlet var wordLearnedLabel: UILabel!
-    @IBOutlet var historyTableView: UITableView!
-    @IBOutlet var wordsButtonTitle: UIButton!
-    @IBOutlet var lessonButtonTitle: UIButton!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var historyTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.setValues()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = kHomeNavigationTitle
-        wordsButtonTitle.setTitle(kWordsButtonTitle, for: .normal)
-        lessonButtonTitle.setTitle(kLessonButtonTitle, for: .normal)
-//        self.setValues()
     }
     
     fileprivate func setValues() {
-        let user = DataStore.shared.loggedInUser
-        self.userAvatarImage?.imageFrom(urlString: user?.avatar)
-        self.userNameLabel?.text = user?.name
-        self.userEmailLabel?.text = user?.email
-        // TODO: Update more field
+        guard let user = DataStore.shared.loggedInUser else {
+            return
+        }
+        self.avatarImageView?.imageFrom(urlString: user.avatar,
+            defaultImage: #imageLiteral(resourceName: "logo_main"))
+        self.fullNameLabel?.text = user.name
+        self.emailLabel?.text = user.email
+        self.summaryLabel?.text = String(format: "LearnedWords".localized,
+            user.learned_words)
     }
     
 }
