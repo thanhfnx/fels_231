@@ -12,5 +12,6 @@ class DataStore {
 
     static let shared = DataStore()
     var loggedInUser: User?
-
+    var categories = [Category]()
+    
 }

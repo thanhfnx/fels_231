@@ -22,7 +22,7 @@ enum APIServiceError: Error {
 
 class APIService {
     
-    func makeURLRequest(urlString: String, parameters: [String:String],
+    func makeURLRequest(urlString: String, parameters: [String: Any],
         method: HttpMethod) -> URLRequest? {
         var paramsString = ""
         for (key, value) in parameters {
