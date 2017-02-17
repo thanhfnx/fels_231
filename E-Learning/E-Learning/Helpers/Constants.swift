@@ -11,7 +11,6 @@ import Foundation
 // MARK: - Constants for LoginViewController
 
 let kGoToRegisterSegueIdentifier = "goToRegister"
-let kGoToHomeSegueIdentifier = "goToHome"
 let kLoggedInUserKey = "com.framgia.E-Learing.loggedInUserJSON"
 
 // MARK: - Constants for DataValidator
@@ -40,8 +39,3 @@ let kUpdateLessonURL = "\(kBaseURL)lessons/%d.json"
 let kGetWordsURL = "\(kBaseURL)words.json"
 let kShowUserURL = "\(kBaseURL)users/%d.json"
 let kUpdateProfileURL = "\(kBaseURL)users/%d.json"
-
-// MARK: - Constants for Home
-let kHomeNavigationTitle = "Profile".localized
-let kWordsButtonTitle = "Words".localized
-let kLessonButtonTitle = "Lesson".localized

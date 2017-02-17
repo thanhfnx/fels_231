@@ -18,11 +18,18 @@ class UpdateProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setValues()
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: .UIKeyboardWillHide, object: nil)
     }
     
     fileprivate func setValues() {
         let user = DataStore.shared.loggedInUser
-        self.showAvatar?.imageFrom(urlString: user?.avatar)
+        self.showAvatar?.imageFrom(urlString: user?.avatar,
+            defaultImage: #imageLiteral(resourceName: "logo_main"))
         self.fullnameTextField?.text = user?.name
         self.emailTextField?.text = user?.email
         // TODO: Update more field
@@ -128,9 +135,56 @@ class UpdateProfileViewController: UIViewController {
 //        self.updatePassword()
     }
     
-    @IBAction func changeAvatar(_ sender: Any) {
-        print("aaa")
+    @IBAction func changeAvatarButtonTapped(_ sender: UIButton) {
+        self.showImagePickerDialog(message: "ChangeAvatarMessage".localized,
+        title: "ChoosePhoto".localized, takeFromCameraHandler: { [weak self] (action) in
+            self?.showCamera()
+        }) { [weak self] (action) in
+            self?.showPhotoLibrary()
+        }
     }
+    
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: nil,
+            message: "ConfirmLogOutMessage".localized,
+            preferredStyle: .actionSheet)
+        let logOutAction = UIAlertAction(title: "LogOutActionTitle".localized,
+            style: .destructive) { (action) in
+            DataStore.shared.loggedInUser = nil
+            UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
+            self.redirectToLogin()
+        }
+        let cancelAction = UIAlertAction(title: "CancelActionTitle".localized,
+            style: .cancel, handler: nil)
+        alertController.addAction(logOutAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func tapGestureRecognized(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    fileprivate func redirectToLogin() {
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController = storyboard.instantiateInitialViewController()
+        UIView.transition(with: window, duration: 0.5,
+            options: .transitionCurlUp, animations: {
+            window.rootViewController = navigationController
+        }, completion: nil)
+    }
+    
+    func keyboardWillShow(_ notification: Notification) {
+        // TODO: Handle keyboard
+    }
+    
+    func keyboardWillHide(_ notification: Notification) {
+        // TODO: Handle keyboard
+    }
+    
 }
 
 extension UpdateProfileViewController: UITextFieldDelegate {
@@ -145,4 +199,43 @@ extension UpdateProfileViewController: UITextFieldDelegate {
         }
         return true
     }
+}
+
+extension UpdateProfileViewController: UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
+    
+    func showCamera() {
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            self.show(message: "OpenCameraErrorMessage".localized, title: nil,
+                completion: nil)
+        } else {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+    
+    func showPhotoLibrary() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage? else {
+            return
+        }
+        self.showAvatar.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
+
 }

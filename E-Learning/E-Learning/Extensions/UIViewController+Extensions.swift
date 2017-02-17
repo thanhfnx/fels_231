@@ -29,4 +29,21 @@ extension UIViewController {
         }
     }
     
+    func showImagePickerDialog(message: String, title: String,
+        takeFromCameraHandler: @escaping (UIAlertAction) -> (),
+        takeFromLibraryHandler: @escaping (UIAlertAction) -> ()) {
+        let alertController = UIAlertController(title: title, message: message,
+            preferredStyle: .actionSheet)
+        let takeFromCameraAction = UIAlertAction(title: "TakeFromCameraActionTitle".localized,
+            style: .default, handler: takeFromCameraHandler)
+        let takeFromLibraryAction = UIAlertAction(title: "TakeFromLibraryActionTitle".localized,
+            style: .default, handler: takeFromLibraryHandler)
+        let cancelAction = UIAlertAction(title: "CancelActionTitle".localized,
+            style: .cancel, handler: nil)
+        alertController.addAction(takeFromCameraAction)
+        alertController.addAction(takeFromLibraryAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }

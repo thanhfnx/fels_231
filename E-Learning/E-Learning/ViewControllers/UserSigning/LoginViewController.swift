@@ -73,8 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate,
                     return
                 }
                 DataStore.shared.loggedInUser = user
-                self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
-                    sender: self)
+                self?.redirectToHome()
             })
         }
     }
@@ -121,8 +120,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate,
                 return
             }
             DataStore.shared.loggedInUser = user
-            self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
-                sender: self)
+            self?.redirectToHome()
         }
     }
     
@@ -184,8 +182,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate,
                             return
                         }
                         DataStore.shared.loggedInUser = user
-                        self?.performSegue(withIdentifier: kGoToHomeSegueIdentifier,
-                            sender: self)
+                        self?.redirectToHome()
                     })
                 }
             }
@@ -200,6 +197,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate,
     
     @IBAction func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    fileprivate func redirectToHome() {
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let navigationController = storyboard.instantiateInitialViewController()
+        UIView.transition(with: window, duration: 0.5,
+            options: .transitionCurlDown, animations: {
+            window.rootViewController = navigationController
+        }, completion: nil)
     }
 
 }

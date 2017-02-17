@@ -10,8 +10,9 @@ import UIKit
 
 extension UIImageView {
 
-    func imageFrom(urlString: String?) {
+    func imageFrom(urlString: String?, defaultImage: UIImage) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
+            self.image = defaultImage
             return
         }
         URLSession.shared.dataTask(with: url)
@@ -22,7 +23,10 @@ extension UIImageView {
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
-            else { return }
+            else {
+                self.image = defaultImage
+                return
+            }
             DispatchQueue.main.async() {
                 self.image = image
             }

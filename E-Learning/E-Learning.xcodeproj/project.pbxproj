@@ -31,7 +31,6 @@
 		9221BA721E4AD3CE00E26A28 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA711E4AD3CE00E26A28 /* Lesson.swift */; };
 		9221BA741E4AD51B00E26A28 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA731E4AD51B00E26A28 /* Word.swift */; };
 		9221BA761E4AD5BF00E26A28 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221BA751E4AD5BF00E26A28 /* Answer.swift */; };
-		924EA81E1E53EAA300E4D14A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924EA81D1E53EAA300E4D14A /* Home.storyboard */; };
 		924EA8201E53F9B700E4D14A /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924EA81F1E53F9B700E4D14A /* JSONObject.swift */; };
 		924EA8211E5412CC00E4D14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924EA8231E5412CC00E4D14A /* Main.storyboard */; };
 		925A70801E4C0ACF00B4AA02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A707F1E4C0ACF00B4AA02 /* Constants.swift */; };
@@ -40,11 +39,13 @@
 		925A70881E4C1DF600B4AA02 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925A70871E4C1DF600B4AA02 /* UIView+Extensions.swift */; };
 		9281C3B91E4D62250061ED5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FF4421E4C4BBE00EEADE2 /* LoginViewController.swift */; };
 		929C6BD01E4ACC2400B11086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C6BCF1E4ACC2400B11086 /* AppDelegate.swift */; };
-		929C6BD71E4ACC2400B11086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929C6BD61E4ACC2400B11086 /* Assets.xcassets */; };
+		92BC36841E56A3C20073A855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BC36831E56A3C20073A855 /* Assets.xcassets */; };
+		92BC36851E56C41E0073A855 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BC36871E56C41E0073A855 /* Home.storyboard */; };
 		92BDD0FC1E51390D00915555 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDD0FB1E51390D00915555 /* APIService.swift */; };
 		92BDD0FE1E5148B500915555 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BDD0FD1E5148B500915555 /* UserService.swift */; };
 		92D6B99B1E5179E0004F565B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6B99A1E5179E0004F565B /* DataStore.swift */; };
 		92D6B99D1E517B09004F565B /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6B99C1E517B09004F565B /* UIImageView+URL.swift */; };
+		92EBA9D71E56E5630001DBD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92EBA9D91E56E5630001DBD0 /* InfoPlist.strings */; };
 		92F5E51A1E52B5A1007824E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F5E5191E52B5A1007824E6 /* GoogleService-Info.plist */; };
 		A52FF4451E4C4BBE00EEADE2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FF4431E4C4BBE00EEADE2 /* RegisterViewController.swift */; };
 		DB54928BDD08FD3277D84469 /* Pods_E_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE713528E8AC9B1DE849E995 /* Pods_E_Learning.framework */; };
@@ -76,7 +77,6 @@
 		9221BA731E4AD51B00E26A28 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		9221BA751E4AD5BF00E26A28 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		922AE3711E52DFD600384274 /* E-Learning-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "E-Learning-Bridging-Header.h"; sourceTree = "<group>"; };
-		924EA81D1E53EAA300E4D14A /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		924EA81F1E53F9B700E4D14A /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		924EA8221E5412CC00E4D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		924EA8251E5412D000E4D14A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -89,12 +89,18 @@
 		9281C3B61E4D55800061ED5F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		929C6BCC1E4ACC2400B11086 /* E-Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Learning.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		929C6BCF1E4ACC2400B11086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		929C6BD61E4ACC2400B11086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		929C6BDB1E4ACC2400B11086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92BC36811E56A06A0073A855 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92BC36831E56A3C20073A855 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92BC36861E56C41E0073A855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		92BDD0FB1E51390D00915555 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		92BDD0FD1E5148B500915555 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		92D6B99A1E5179E0004F565B /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		92D6B99C1E517B09004F565B /* UIImageView+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
+		92EBA9D21E56CFC30001DBD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Home.strings; sourceTree = "<group>"; };
+		92EBA9D41E56CFC50001DBD0 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Home.strings; sourceTree = "<group>"; };
+		92EBA9D81E56E5630001DBD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		92EBA9DA1E56E5660001DBD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		92EBA9DB1E56E5670001DBD0 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92F5E5191E52B5A1007824E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A52FF4421E4C4BBE00EEADE2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A52FF4431E4C4BBE00EEADE2 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +205,7 @@
 		92039FF81E4BFC29000481C5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				924EA81D1E53EAA300E4D14A /* Home.storyboard */,
+				92BC36871E56C41E0073A855 /* Home.storyboard */,
 				924EA8231E5412CC00E4D14A /* Main.storyboard */,
 				113503331E4C44330003CC49 /* Lesson.storyboard */,
 				92039FFB1E4BFFBD000481C5 /* LaunchScreen.storyboard */,
@@ -248,6 +254,7 @@
 				925A707F1E4C0ACF00B4AA02 /* Constants.swift */,
 				925A70811E4C0CBB00B4AA02 /* DataValidator.swift */,
 				113503521E4C816B0003CC49 /* Localizable.strings */,
+				92EBA9D91E56E5630001DBD0 /* InfoPlist.strings */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -281,10 +288,10 @@
 				92504CA61E4B03F300883440 /* ViewControllers */,
 				9221BA6A1E4ACE3D00E26A28 /* Models */,
 				929C6BCF1E4ACC2400B11086 /* AppDelegate.swift */,
-				929C6BD61E4ACC2400B11086 /* Assets.xcassets */,
-				929C6BDB1E4ACC2400B11086 /* Info.plist */,
 				92F5E5191E52B5A1007824E6 /* GoogleService-Info.plist */,
+				92BC36811E56A06A0073A855 /* Info.plist */,
 				922AE3711E52DFD600384274 /* E-Learning-Bridging-Header.h */,
+				92BC36831E56A3C20073A855 /* Assets.xcassets */,
 			);
 			path = "E-Learning";
 			sourceTree = "<group>";
@@ -362,7 +369,7 @@
 				TargetAttributes = {
 					929C6BCB1E4ACC2400B11086 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = K6ZTG96ZCP;
+						DevelopmentTeam = VV528E4X2Y;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -397,9 +404,10 @@
 				113503501E4C816B0003CC49 /* Localizable.strings in Resources */,
 				9217B23B1E4C010E00744083 /* LaunchScreen.storyboard in Resources */,
 				924EA8211E5412CC00E4D14A /* Main.storyboard in Resources */,
-				929C6BD71E4ACC2400B11086 /* Assets.xcassets in Resources */,
 				559598A21E5152A400C48E59 /* WordsListCell.xib in Resources */,
-				924EA81E1E53EAA300E4D14A /* Home.storyboard in Resources */,
+				92BC36841E56A3C20073A855 /* Assets.xcassets in Resources */,
+				92BC36851E56C41E0073A855 /* Home.storyboard in Resources */,
+				92EBA9D71E56E5630001DBD0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +524,26 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		92BC36871E56C41E0073A855 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92BC36861E56C41E0073A855 /* Base */,
+				92EBA9D21E56CFC30001DBD0 /* en */,
+				92EBA9D41E56CFC50001DBD0 /* vi */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		92EBA9D91E56E5630001DBD0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92EBA9D81E56E5630001DBD0 /* Base */,
+				92EBA9DA1E56E5660001DBD0 /* en */,
+				92EBA9DB1E56E5670001DBD0 /* vi */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -618,7 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = K6ZTG96ZCP;
+				DEVELOPMENT_TEAM = VV528E4X2Y;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";
@@ -635,7 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = K6ZTG96ZCP;
+				DEVELOPMENT_TEAM = VV528E4X2Y;
 				INFOPLIST_FILE = "E-Learning/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.framgia.E-Learning";
