@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeCell: UITableViewCell {
+    
     @IBOutlet weak var lessonImage: UIImageView!
     @IBOutlet weak var learnedInfoLabel: UILabel!
     @IBOutlet weak var learnedDateLabel: UILabel!
+    
 }

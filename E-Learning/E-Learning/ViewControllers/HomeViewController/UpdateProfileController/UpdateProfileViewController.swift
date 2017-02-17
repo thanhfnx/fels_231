@@ -9,6 +9,7 @@
 import UIKit
 
 class UpdateProfileViewController: UIViewController {
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -21,9 +22,8 @@ class UpdateProfileViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
             selector: #selector(keyboardWillShow(_:)),
             name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(keyboardWillHide(_:)),
-            name: .UIKeyboardWillHide, object: nil)
+        newPasswordTextField.text = nil
+        print(newPasswordTextField.text!)
     }
     
     fileprivate func setValues() {
@@ -41,36 +41,42 @@ class UpdateProfileViewController: UIViewController {
         self.confirmPasswordTextField.text = ""
     }
     
-    func updateFullname() {
-        guard let newFullname = self.fullnameTextField.text, !newFullname.isEmpty else {
-            self.show(message: "Name is invalid!", title: nil, completion: { [weak self] (action) in
-                self?.setValues()
-            })
-            return
-        }
-        if newFullname == DataStore.shared.loggedInUser?.name {
-            return
-        }
-//        guard let newPassword = self.newPasswordTextField.text, newPassword.characters.count >= kMinimumPasswordLength else {
-//            if !newPassword.isEmpty,  {
-//                self.show(message: "New password is invalid", title: nil, completion: nil)
-//                return
-//            }
-//            if let confirmPassword = self.confirmPasswordTextField.text, confirmPassword != newPassword {
-//                self.show(message: "Confirm password is invalid", title: nil, completion: nil)
-//                return
-//            }
-//        }
+    func updateProfile() {
+        let newFullname = self.fullnameTextField.text
+        let newPassword = self.newPasswordTextField.text
+        let confirmPassword = self.confirmPasswordTextField.text
         let user = User()
         guard let loggedUser = DataStore.shared.loggedInUser else {
             return
         }
         user.id = loggedUser.id
-        user.name = newFullname
+        user.auth_token = loggedUser.auth_token
+        if newFullname == DataStore.shared.loggedInUser?.name {
+            user.name = newFullname!
+        } else if let fullname = newFullname, !fullname.isEmpty {
+            user.name = fullname
+        } else {
+            self.show(message: "Name is invalid!", title: nil, completion: nil)
+            return
+        }
+        if let newPassword = newPassword {
+            if newPassword.characters.count < kMinimumPasswordLength {
+                self.show(message: "New password must more than \(kMinimumPasswordLength) charaters!",
+                    title: nil, completion: nil)
+                return
+            } else {
+                user.password = newPassword
+            }
+        }
+        if let confirmPassword = confirmPassword {
+            if confirmPassword != newPassword {
+                self.show(message: "Confirm password is invalid", title: nil, completion: nil)
+                return
+            }
+        }        
         user.email = loggedUser.email
         user.password = loggedUser.password
         user.avatar = loggedUser.avatar
-        user.auth_token = loggedUser.auth_token
         UserService.shared.updateProfile(user: user) { [weak self] (message, user) in
             if let message = message {
                 self?.show(message: message, title: nil, completion: nil)
@@ -78,61 +84,18 @@ class UpdateProfileViewController: UIViewController {
             }
             if let user = user {
                 DataStore.shared.loggedInUser = user
-                self?.show(message: "Thanh cong", title: nil, completion: nil)
-                self?.setValues()
+                self?.show(message: "Cập nhật thành công!", title: nil, completion: nil)
+                self?.resetValues()
             }
         }
     }
-        
-//    func updatePassword() {
-//        guard let oldPassword = self.oldPasswordTextField.text, oldPassword == DataStore.shared.loggedInUser?.password else {
-//            self.show(message: "Current password is wrong!", title: nil, completion: { (action) in
-//                self.resetValues()
-//            })
-//            return
-//        }
-//        guard let newPassword = self.newPasswordTextField.text, newPassword.characters.count >= kMinimumPasswordLength else {
-//            self.show(message: "New password is invalid", title: nil, completion: { (action) in
-//                self.resetValues()
-//            })
-//            return
-//        }
-//        guard let confirmPassword = self.confirmPasswordTextField.text, confirmPassword == newPassword else {
-//            self.show(message: "Confirm password is invalid", title: nil, completion: { (action) in
-//                self.resetValues()
-//            })
-//            return
-//        }
-//        let user = User()
-//        guard let loggedUser = DataStore.shared.loggedInUser else {
-//            return
-//        }
-//        user.id = loggedUser.id
-//        user.name = loggedUser.name
-//        user.email = loggedUser.email
-//        user.password = newPassword
-//        user.avatar = loggedUser.avatar
-//        user.auth_token = loggedUser.auth_token
-//        UserService.shared.updateProfile(user: user) { (message, user) in
-//            if let message = message {
-//                self.show(message: message, title: nil, completion: nil)
-//                return
-//            }
-//            if let user = user {
-//                DataStore.shared.loggedInUser = user
-//                self.show(message: "Thanh cong", title: nil, completion: nil)
-//                self.setValues()
-//            }
-//        } 
-//    }
 
     @IBAction func resetButtonTapped(_ sender: UIButton) {
         self.resetValues()
     }
     
     @IBAction func updateButtonTapped(_ sender: UIButton) {
-        self.updateFullname()
-//        self.updatePassword()
+        self.updateProfile()
     }
     
     @IBAction func changeAvatarButtonTapped(_ sender: UIButton) {
@@ -199,6 +162,7 @@ extension UpdateProfileViewController: UITextFieldDelegate {
         }
         return true
     }
+    
 }
 
 extension UpdateProfileViewController: UIImagePickerControllerDelegate,

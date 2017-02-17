@@ -560,6 +560,9 @@
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="filterButtonTapped:" destination="1gt-yF-B11" eventType="touchUpInside" id="XZk-uE-phe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -582,7 +585,7 @@
                     <navigationItem key="navigationItem" title="Words" id="A9i-CP-sB6"/>
                     <connections>
                         <outlet property="filterPickerView" destination="tc0-Hc-0mM" id="i0Y-rn-qHw"/>
-                        <outlet property="filterRect" destination="bc1-kD-nnY" id="0je-s7-kRt"/>
+                        <outlet property="filterRect" destination="62d-Vt-qjg" id="chU-il-VU3"/>
                         <outlet property="filterViewHeight" destination="qkK-J3-guU" id="WQi-dF-4yI"/>
                         <outlet property="wordsListTableView" destination="ajv-WO-f7h" id="8ZI-Bz-1VI"/>
                     </connections>
