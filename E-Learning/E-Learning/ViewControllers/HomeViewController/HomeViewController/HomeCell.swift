@@ -9,9 +9,18 @@
 import UIKit
 
 class HomeCell: UITableViewCell {
-    
-    @IBOutlet weak var lessonImage: UIImageView!
-    @IBOutlet weak var learnedInfoLabel: UILabel!
-    @IBOutlet weak var learnedDateLabel: UILabel!
+
+    @IBOutlet weak var inforLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    var activity: Activity? {
+        didSet {
+            guard let activity = activity else {
+                return
+            }
+            self.dateLabel?.text = DateTimeFormatter.default.string(from: activity.created_at,
+                outputFormat: "DateTimeFormat".localized)
+            self.inforLabel?.text = activity.content
+        }
+    }
     
 }
