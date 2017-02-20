@@ -14,7 +14,7 @@ class Word {
     var resultId: Int?
     var content: String?
     var answers = [Answer]()
-    weak var selectedAnswer: Answer?
+    var selectedAnswer: Answer?
 
     init(dictionary: Dictionary<String, Any>) {
         id = dictionary.intForKey("id")
@@ -28,4 +28,33 @@ class Word {
             }
         }
     }
+    
+}
+
+extension Word {
+    
+    var isAnswerRight: Bool {
+        return selectedAnswer == rightAnswer
+    }
+    var rightAnswer: Answer? {
+        for answer in answers {
+            if answer.isCorrect {
+                return answer
+            }
+        }
+        return nil
+    }
+    var result: Dictionary<String, Any>? {
+        if let id = id {
+            var resultDict = Dictionary<String, Any>()
+            resultDict["id"] = "\(id)"
+            if let answer = selectedAnswer, let answerId = answer.id {
+                resultDict["answer_id"] = "\(answerId)"
+            }
+            return resultDict
+        } else {
+            return nil
+        }
+    }
+    
 }

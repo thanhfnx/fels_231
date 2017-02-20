@@ -12,6 +12,10 @@ enum CategoryRequestError: Error {
     case outOfCategories
 }
 
+enum UpdateLessonError: Error {
+    case errorUpdateLesson
+}
+
 enum CategoryRequestResult {
     case success([Category])
     case failure(Error)
@@ -69,6 +73,25 @@ class LessonService: APIService {
         task.resume()
     }
     
+    func updateLesson(lessonId: Int, info: [String: Any],
+        completion: @escaping (LessonRequestResult) -> Void) {
+        let urlString = String(format: kUpdateLessonURL, lessonId)
+        var infoDict = info
+        infoDict["auth_token"] = DataStore.shared.loggedInUser?.auth_token ?? ""
+        guard let request = makeURLRequest(urlString: urlString, parameters: infoDict,
+            method: .patch) else {
+            completion(.failure(APIServiceError.errorCreateURLRequest))
+            return
+        }
+        let task = session.dataTask(with: request) {
+            (data, response, error) in
+            OperationQueue.main.addOperation {
+                completion(self.processLessonRequest(data: data, error: error))
+            }
+        }
+        task.resume()
+    }
+    
     private func processCategoriesRequest(data: Data?, error: Error?) -> CategoryRequestResult {
         guard let jsonData = data else {
             return .failure(error!)
@@ -114,7 +137,7 @@ class LessonService: APIService {
                 let jsonDictionary = jsonObject as? [AnyHashable:Any],
                 let lessonDictionary = jsonDictionary["lesson"] as? [String:Any]
                 else {
-                    return .failure(APIServiceError.errorParseJSON)
+                return .failure(APIServiceError.errorParseJSON)
             }
             return .success(Lesson(dictionary: lessonDictionary))
         } catch {

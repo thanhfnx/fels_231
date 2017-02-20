@@ -9,9 +9,15 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    var lesson: Lesson!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.titleLabel.text = lesson.name
+        self.countLabel.text = "\(lesson.numberOfRightAnswer)/\(lesson.words.count)"
     }
     
     // MARK: - Button event handling
@@ -26,8 +32,7 @@ extension ResultViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-        // For Demo
-        return 10
+        return lesson.words.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -36,6 +41,7 @@ extension ResultViewController: UITableViewDataSource {
             kResultCellId, for: indexPath) as? ResultCell else {
             return UITableViewCell()
         }
+        cell.word = lesson.words[indexPath.row]
         return cell
     }
     

@@ -24,11 +24,7 @@ class APIService {
     
     func makeURLRequest(urlString: String, parameters: [String: Any],
         method: HttpMethod) -> URLRequest? {
-        var paramsString = ""
-        for (key, value) in parameters {
-            paramsString += "&\(key)=\(value)"
-        }
-        paramsString.remove(at: paramsString.startIndex)
+        let paramsString = parameters.toHttpFormDataString()
         var request: URLRequest
         switch method {
         case .get:
