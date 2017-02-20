@@ -10,4 +10,16 @@ import UIKit
 
 class WordsListCell: UITableViewCell {
     
+    @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    var word: Word? {
+        didSet {
+            if let word = word {
+                wordLabel.text = word.content
+            } else {
+                wordLabel.text = nil
+            }
+        }
+    }
+    
 }
