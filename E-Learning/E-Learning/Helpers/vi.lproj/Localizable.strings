@@ -9,6 +9,7 @@
 // MARK: - Strings for Lesson
 
 "Categories" = "Các danh mục";
+"CategoryDescription" = "Bạn đã học %d từ";
 
 // MARK: - Strings for DataValidator
 

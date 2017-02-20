@@ -15,11 +15,11 @@ class LessonAnswerCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {
-            self.answerNameLabel.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.2823529412, blue: 0.1254901961, alpha: 1)
+            self.answerNameLabel.backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.1607843137, blue: 0.3882352941, alpha: 1)
             self.answerNameLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         } else {
             self.answerNameLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            self.answerNameLabel.textColor = #colorLiteral(red: 0.9137254902, green: 0.2823529412, blue: 0.1254901961, alpha: 1)
+            self.answerNameLabel.textColor = #colorLiteral(red: 0.1803921569, green: 0.1607843137, blue: 0.3882352941, alpha: 1)
         }
     }
     
