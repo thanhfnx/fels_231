@@ -28,6 +28,7 @@ let kResultViewControllerId = "ResultViewController"
 let kResultCellId = "ResultCell"
 
 // MARK: - Constants for API
+
 let kBaseURL = "https://manh-nt.herokuapp.com/"
 let kRegisterURL = "\(kBaseURL)users.json"
 let kRegisterWithSocialURL = "\(kBaseURL)auths.json"
@@ -39,3 +40,8 @@ let kUpdateLessonURL = "\(kBaseURL)lessons/%d.json"
 let kGetWordsURL = "\(kBaseURL)words.json"
 let kShowUserURL = "\(kBaseURL)users/%d.json"
 let kUpdateProfileURL = "\(kBaseURL)users/%d.json"
+
+// MARK: - Constants for HomeViewController
+
+let kHistoryCellIdentifier = "historyCellId"
+let kDefaultInputDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"

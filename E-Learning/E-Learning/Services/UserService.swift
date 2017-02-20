@@ -118,4 +118,26 @@ class UserService: APIService {
         }
     }
     
+    func refresh(user: User, complete: @escaping (String?, User?) -> ()) {
+        let params: [String: Any] = ["auth_token": user.auth_token]
+        let url = String(format: kShowUserURL, user.id)
+        sendRequest(url: url, method: .post, params: params,
+            success: { (json) in
+            guard let userJSON = json["user"] as? [String: Any] else {
+                if let message = json["message"] as? String {
+                    complete(message.localized + "!", nil)
+                } else {
+                    complete("UnknownError".localized, nil)
+                }
+                return
+            }
+            UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
+            UserDefaults.standard.set(userJSON, forKey: kLoggedInUserKey)
+            let result = User(keyedValues: userJSON)
+            complete(nil, result)
+        }) { (error) in
+            complete(error, nil)
+        }
+    }
+    
 }

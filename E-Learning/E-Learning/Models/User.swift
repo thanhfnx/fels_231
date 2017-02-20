@@ -12,7 +12,7 @@ class Activity: JSONObject {
 
     var id: Int = 0
     var content: String = ""
-    var create_at: String = ""
+    var created_at: String = ""
     
 }
 

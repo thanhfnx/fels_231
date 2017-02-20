@@ -76,7 +76,10 @@ class UpdateProfileViewController: UIViewController {
         }        
         user.email = loggedUser.email
         user.password = loggedUser.password
-        user.avatar = loggedUser.avatar
+        if let image = self.showAvatar?.image {
+            user.avatar = UIImageJPEGRepresentation(image, 0.9)?.base64EncodedString() ?? ""
+        }
+        user.auth_token = loggedUser.auth_token
         UserService.shared.updateProfile(user: user) { [weak self] (message, user) in
             if let message = message {
                 self?.show(message: message, title: nil, completion: nil)

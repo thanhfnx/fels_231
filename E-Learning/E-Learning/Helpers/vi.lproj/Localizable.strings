@@ -40,3 +40,8 @@
 
 "LearnedWords" = "Đã học %d từ";
 "OpenCameraErrorMessage" = "Có lỗi xảy ra! Không thể mở máy ảnh!";
+
+// MARK: - Strings for HomeViewController
+
+"DateTimeFormat" = "HH:mm:ss dd/MM/yyyy";
+"NoData" = "Không có dữ liệu";
