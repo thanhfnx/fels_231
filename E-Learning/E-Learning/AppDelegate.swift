@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     fileprivate func preProcessLogIn() {
-        // TODO: Remove this line in future
-//        UserDefaults.standard.removeObject(forKey: kLoggedInUserKey)
         let storyboardName: String
         if let userJSON = UserDefaults.standard.object(forKey: kLoggedInUserKey)
             as? [String: Any] {
