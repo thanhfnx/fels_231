@@ -33,13 +33,13 @@
 "ajB-Sq-smL.normalTitle" = "Danh sách từ";
 
 /* Class = "UIButton"; normalTitle = "All"; ObjectID = "ao3-bh-HkY"; */
-"ao3-bh-HkY.normalTitle" = "Tất cả";
+"ao3-bh-HkY.normalTitle" = "Lọc từ";
 
 /* Class = "UITextField"; placeholder = "Full name"; ObjectID = "bR7-WV-d3d"; */
 "bR7-WV-d3d.placeholder" = "Họ và tên";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "hKb-Ou-e1u"; */
-"hKb-Ou-e1u.normalTitle" = "Reset";
+"hKb-Ou-e1u.normalTitle" = "Nhập lại";
 
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "igC-MT-gTR"; */
 "igC-MT-gTR.title" = "Huỷ";

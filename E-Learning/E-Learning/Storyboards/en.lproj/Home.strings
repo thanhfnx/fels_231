@@ -5,17 +5,17 @@
 /* Class = "UISegmentedControl"; 1pz-Ju-2rc.segmentTitles[1] = "Activity Log"; ObjectID = "1pz-Ju-2rc"; */
 "1pz-Ju-2rc.segmentTitles[1]" = "Activity Log";
 
-/* Class = "UIButton"; normalTitle = "All"; ObjectID = "62d-Vt-qjg"; */
-"62d-Vt-qjg.normalTitle" = "All";
-
 /* Class = "UINavigationItem"; title = "Words"; ObjectID = "A9i-CP-sB6"; */
 "A9i-CP-sB6.title" = "Words";
 
 /* Class = "UIButton"; normalTitle = "Lesson"; ObjectID = "DdS-hp-jU7"; */
 "DdS-hp-jU7.normalTitle" = "Lesson";
 
-/* Class = "UINavigationItem"; title = "Profile1"; ObjectID = "EhB-zJ-kV9"; */
-"EhB-zJ-kV9.title" = "Profile1";
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "EhB-zJ-kV9"; */
+"EhB-zJ-kV9.title" = "Profile";
+
+/* Class = "UIButton"; normalTitle = "Open"; ObjectID = "JAs-IB-DGs"; */
+"JAs-IB-DGs.normalTitle" = "Open";
 
 /* Class = "UIButton"; normalTitle = "Change"; ObjectID = "Nef-4h-bdR"; */
 "Nef-4h-bdR.normalTitle" = "Change";
@@ -32,17 +32,14 @@
 /* Class = "UIButton"; normalTitle = "Words"; ObjectID = "ajB-Sq-smL"; */
 "ajB-Sq-smL.normalTitle" = "Words";
 
-/* Class = "UIButton"; normalTitle = "All"; ObjectID = "ao3-bh-HkY"; */
-"ao3-bh-HkY.normalTitle" = "All";
+/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "ao3-bh-HkY"; */
+"ao3-bh-HkY.normalTitle" = "Filter";
 
 /* Class = "UITextField"; placeholder = "Full name"; ObjectID = "bR7-WV-d3d"; */
 "bR7-WV-d3d.placeholder" = "Full name";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "hKb-Ou-e1u"; */
 "hKb-Ou-e1u.normalTitle" = "Reset";
-
-/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "igC-MT-gTR"; */
-"igC-MT-gTR.title" = "Cancel";
 
 /* Class = "UIBarButtonItem"; title = "Sign out"; ObjectID = "jzg-GO-Uvv"; */
 "jzg-GO-Uvv.title" = "Sign out";
