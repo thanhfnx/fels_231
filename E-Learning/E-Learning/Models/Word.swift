@@ -18,7 +18,7 @@ class Word {
 
     init(dictionary: Dictionary<String, Any>) {
         id = dictionary.intForKey("id")
-        resultId = dictionary.intForKey("resultId")
+        resultId = dictionary.intForKey("result_id")
         content = dictionary.stringForKey("content")
         if let answers = dictionary.arrayForKey("answers")
             as? Array<Dictionary<String, Any>> {
@@ -45,7 +45,7 @@ extension Word {
         return nil
     }
     var result: Dictionary<String, Any>? {
-        if let id = id {
+        if let id = resultId {
             var resultDict = Dictionary<String, Any>()
             resultDict["id"] = "\(id)"
             if let answer = selectedAnswer, let answerId = answer.id {

@@ -33,14 +33,17 @@ class APIService {
             }
             request = URLRequest(url: url)
         case .post, .patch, .delete:
-            guard let url = URL(string: urlString) else {
+            guard let url = URL(string: urlString),
+                let paramsData = paramsString.data(using: .utf8,
+                    allowLossyConversion: true)
+                else {
                 return nil
             }
             request = URLRequest(url: url)
-            request.httpBody = paramsString.data(using: .utf8,
-                allowLossyConversion: true)
+            request.httpBody = paramsData
         }
-        request.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/x-www-form-urlencoded",
+            forHTTPHeaderField: "Content-Type")
         request.httpMethod = method.rawValue
         return request
     }

@@ -9,6 +9,7 @@
 // MARK: - Strings for Lesson
 
 "Categories" = "Categories";
+"CategoryDescription" = "You're learned %d words";
 
 // MARK: - Strings for DataValidator
 

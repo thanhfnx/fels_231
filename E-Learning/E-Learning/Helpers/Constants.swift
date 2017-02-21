@@ -26,6 +26,7 @@ let kShowLessonSegueId = "ShowLesson"
 let kLessonAnswerCellId = "LessonAnswerCell"
 let kResultViewControllerId = "ResultViewController"
 let kResultCellId = "ResultCell"
+let kUserDidLearnMoreWord = "UserDidLearnMoreWord"
 
 // MARK: - Constants for API
 

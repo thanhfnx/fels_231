@@ -28,15 +28,18 @@ class LessonViewController: UIViewController {
         super.viewDidLoad()
         self.title = lesson.name
         currentQuestion = 0
-        rightSwipeGestureRecognizer.addTarget(self, action: #selector(onPreviousPressed))
-        leftSwipeGestureRecognizer.addTarget(self, action: #selector(onNextPressed))
+        rightSwipeGestureRecognizer.addTarget(self,
+            action: #selector(onPreviousPressed))
+        leftSwipeGestureRecognizer.addTarget(self,
+            action: #selector(onNextPressed))
     }
     
     // MARK: - Button event handling
     
     @IBAction func onDonePressed(_ sender: UIBarButtonItem) {
         let _ = navigationController?.popViewController(animated: true)
-        guard let categoriesViewController = navigationController?.topViewController
+        guard let categoriesViewController =
+            navigationController?.topViewController
             as? CategoriesViewController else {
             return
         }
@@ -74,8 +77,8 @@ class LessonViewController: UIViewController {
             answersTableView.reloadSections(IndexSet(integer: 0), with: .fade)
             if let selectedAnswer = word.selectedAnswer,
                 let answerIndex = word.answers.index(of: selectedAnswer) {
-                answersTableView.selectRow(at: IndexPath(row: answerIndex, section: 0),
-                    animated: true, scrollPosition: .none)
+                answersTableView.selectRow(at: IndexPath(row: answerIndex,
+                    section: 0), animated: true, scrollPosition: .none)
             }
         } else {
             countLabel.text = "0/0"
@@ -123,7 +126,8 @@ extension LessonViewController: UITableViewDataSource {
 
 extension LessonViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    func tableView(_ tableView: UITableView,
+        willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if tableView.indexPathForSelectedRow == indexPath {
             tableView.deselectRow(at: indexPath, animated: true)
             if let word = checkExistQuestion(number: currentQuestion) {
@@ -135,7 +139,8 @@ extension LessonViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
         if let word = checkExistQuestion(number: currentQuestion) {
             word.selectedAnswer = word.answers[indexPath.row]
         }
