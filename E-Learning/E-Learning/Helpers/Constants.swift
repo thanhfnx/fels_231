@@ -46,3 +46,4 @@ let kUpdateProfileURL = "\(kBaseURL)users/%d.json"
 
 let kHistoryCellIdentifier = "historyCellId"
 let kDefaultInputDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+let kUserDidUpdateProfileNotification = "kUserDidUpdateProfileNotification"

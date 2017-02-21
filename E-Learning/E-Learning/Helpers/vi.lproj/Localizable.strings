@@ -19,7 +19,7 @@
 "InvalidMatchFieldMessage" = "%@ và %@ phải giống nhau!";
 "Password" = "Mật khẩu";
 "RetypePassword" = "Nhập lại mật khẩu";
-"FullName" = "Họ tên";
+"FullName" = "Họ và tên";
 
 // MARK: - Strings for APIService
 
@@ -41,6 +41,7 @@
 
 "LearnedWords" = "Đã học %d từ";
 "OpenCameraErrorMessage" = "Có lỗi xảy ra! Không thể mở máy ảnh!";
+"UpdateSuccessMessage" = "Cập nhật thành công!";
 
 // MARK: - Strings for HomeViewController
 

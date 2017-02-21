@@ -41,6 +41,7 @@
 
 "LearnedWords" = "Learned %d word(s)";
 "OpenCameraErrorMessage" = "Something went wrong! Can't open your camera!";
+"UpdateSuccessMessage" = "Update profile successfully!";
 
 // MARK: - Strings for HomeViewController
 

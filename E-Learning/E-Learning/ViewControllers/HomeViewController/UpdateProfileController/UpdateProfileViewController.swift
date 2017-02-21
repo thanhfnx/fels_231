@@ -11,10 +11,12 @@ import UIKit
 class UpdateProfileViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var fullnameTextField: UITextField!
-    @IBOutlet weak var showAvatar: UIImageView!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var avatarTopLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var indicatorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,73 +24,89 @@ class UpdateProfileViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
             selector: #selector(keyboardWillShow(_:)),
             name: .UIKeyboardWillShow, object: nil)
-        newPasswordTextField.text = nil
-        print(newPasswordTextField.text!)
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     fileprivate func setValues() {
         let user = DataStore.shared.loggedInUser
-        self.showAvatar?.imageFrom(urlString: user?.avatar,
+        self.avatarImageView?.imageFrom(urlString: user?.avatar,
             defaultImage: #imageLiteral(resourceName: "logo_main"))
-        self.fullnameTextField?.text = user?.name
+        self.fullNameTextField?.text = user?.name
         self.emailTextField?.text = user?.email
-        // TODO: Update more field
     }
     
-    func resetValues() {
+    fileprivate func resetValues() {
         self.setValues()
-        self.newPasswordTextField.text = ""
-        self.confirmPasswordTextField.text = ""
+        self.newPasswordTextField?.text = ""
+        self.confirmPasswordTextField?.text = ""
     }
     
     func updateProfile() {
-        let newFullname = self.fullnameTextField.text
-        let newPassword = self.newPasswordTextField.text
-        let confirmPassword = self.confirmPasswordTextField.text
-        let user = User()
-        guard let loggedUser = DataStore.shared.loggedInUser else {
+        self.view.endEditing(true)
+        guard let user = DataStore.shared.loggedInUser else {
             return
         }
-        user.id = loggedUser.id
-        user.auth_token = loggedUser.auth_token
-        if newFullname == DataStore.shared.loggedInUser?.name {
-            user.name = newFullname!
-        } else if let fullname = newFullname, !fullname.isEmpty {
-            user.name = fullname
-        } else {
-            self.show(message: "Name is invalid!", title: nil, completion: nil)
+        guard let fullName = self.fullNameTextField?.text else {
             return
         }
-        if let newPassword = newPassword {
-            if newPassword.characters.count < kMinimumPasswordLength {
-                self.show(message: "New password must more than \(kMinimumPasswordLength) charaters!",
-                    title: nil, completion: nil)
-                return
-            } else {
-                user.password = newPassword
-            }
+        guard let newPassword = self.newPasswordTextField?.text else {
+            return
         }
-        if let confirmPassword = confirmPassword {
-            if confirmPassword != newPassword {
-                self.show(message: "Confirm password is invalid", title: nil, completion: nil)
-                return
-            }
-        }        
-        user.email = loggedUser.email
-        user.password = loggedUser.password
-        if let image = self.showAvatar?.image {
-            user.avatar = UIImageJPEGRepresentation(image, 0.9)?.base64EncodedString() ?? ""
+        guard let confirmPassword = self.confirmPasswordTextField?.text else {
+            return
         }
-        user.auth_token = loggedUser.auth_token
-        UserService.shared.updateProfile(user: user) { [weak self] (message, user) in
+        if fullName == user.name, newPassword.isEmpty, confirmPassword.isEmpty {
+            return
+        }
+        if fullName.isEmpty {
+            self.show(message: String.init(format: "EmptyFieldMessage".localized,
+            "FullName".localized), title: nil, completion: { (action) in
+                self.fullNameTextField?.becomeFirstResponder()
+            })
+            return
+        }
+        if !newPassword.isEmpty && newPassword.characters.count < kMinimumPasswordLength {
+            self.show(message: String(format: "InvalidLengthFieldMessage".localized,
+            "Password".localized, kMinimumPasswordLength), title: nil,
+                completion: { (action) in
+                self.newPasswordTextField?.becomeFirstResponder()
+            })
+            return
+        }
+        if confirmPassword != newPassword{
+            self.show(message: String(format: "InvalidMatchFieldMessage".localized,
+            "RetypePassword".localized, "Password".localized), title: nil,
+                completion: { (action) in
+                self.confirmPasswordTextField.becomeFirstResponder()
+            })
+            return
+        }
+        let updatingUser = User()
+        updatingUser.id = user.id
+        updatingUser.auth_token = user.auth_token
+        updatingUser.email = user.email
+        updatingUser.name = fullName
+        updatingUser.password = newPassword
+        updatingUser.avatar = ""
+        self.indicatorView?.isHidden = false
+        UserService.shared.updateProfile(user: updatingUser) { [weak self] (message, user) in
+            self?.indicatorView?.isHidden = true
             if let message = message {
                 self?.show(message: message, title: nil, completion: nil)
                 return
             }
             if let user = user {
                 DataStore.shared.loggedInUser = user
-                self?.show(message: "Cập nhật thành công!", title: nil, completion: nil)
+                self?.show(message: "UpdateSuccessMessage".localized, title: nil, completion: nil)
                 self?.resetValues()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: kUserDidUpdateProfileNotification),
+                    object: nil)
             }
         }
     }
@@ -144,11 +162,21 @@ class UpdateProfileViewController: UIViewController {
     }
     
     func keyboardWillShow(_ notification: Notification) {
-        // TODO: Handle keyboard
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.0
+        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0.0
+        let offset = self.emailTextField.frame.origin.y - navigationBarHeight - 32.0
+        self.avatarTopLayoutConstraint?.constant -= offset
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     func keyboardWillHide(_ notification: Notification) {
-        // TODO: Handle keyboard
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.0
+        self.avatarTopLayoutConstraint?.constant = 16.0
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
+        }
     }
     
 }
@@ -156,12 +184,12 @@ class UpdateProfileViewController: UIViewController {
 extension UpdateProfileViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.fullnameTextField {
-            self.fullnameTextField.resignFirstResponder()
+        if textField == self.fullNameTextField {
+            self.fullNameTextField?.resignFirstResponder()
         } else if textField == self.newPasswordTextField {
-            self.confirmPasswordTextField.becomeFirstResponder()
+            self.confirmPasswordTextField?.becomeFirstResponder()
         } else if textField == self.confirmPasswordTextField {
-            self.confirmPasswordTextField.resignFirstResponder()
+            self.confirmPasswordTextField?.resignFirstResponder()
         }
         return true
     }
@@ -201,7 +229,7 @@ extension UpdateProfileViewController: UIImagePickerControllerDelegate,
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage? else {
             return
         }
-        self.showAvatar.image = image
+        self.avatarImageView?.image = image
         self.dismiss(animated: true, completion: nil)
     }
 

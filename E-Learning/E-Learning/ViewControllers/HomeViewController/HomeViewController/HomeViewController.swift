@@ -20,31 +20,25 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var historyTableView: UITableView!
+    @IBOutlet weak var indicatorView: UIView!
+    @IBOutlet weak var tableTypeSegmentedControl: UISegmentedControl!
     
     var learnedActivities = [Activity]()
     var loggingActivities = [Activity]()
     var activities = [Activity]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setValues()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let user = DataStore.shared.loggedInUser else {
-            return
-        }
-        self.learnedActivities = user.activities.filter({
-            $0.content.hasPrefix("Learned ")
-        })
-        self.loggingActivities = user.activities.filter({
-            !$0.content.hasPrefix("Learned ")
-        })
-        self.activities = self.learnedActivities
+        self.setValues()
+        NotificationCenter.default.addObserver(self, selector: #selector(setValues),
+            name: NSNotification.Name.init(rawValue: kUserDidUpdateProfileNotification), object: nil)
     }
     
-    fileprivate func setValues() {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc fileprivate func setValues() {
         guard let user = DataStore.shared.loggedInUser else {
             return
         }
@@ -54,6 +48,25 @@ class HomeViewController: UIViewController {
         self.emailLabel?.text = user.email
         self.summaryLabel?.text = String(format: "LearnedWords".localized,
             user.learned_words)
+        self.learnedActivities = user.activities.filter({
+            $0.content.hasPrefix("Learned ")
+        }).reversed()
+        self.loggingActivities = user.activities.filter({
+            !$0.content.hasPrefix("Learned ")
+        }).reversed()
+        self.reloadData()
+    }
+    
+    fileprivate func reloadData() {
+        switch self.tableTypeSegmentedControl?.selectedSegmentIndex ?? 0 {
+        case TableViewType.summary.rawValue:
+            self.activities = self.learnedActivities
+        case TableViewType.activityLog.rawValue:
+            self.activities = self.loggingActivities
+        default:
+            break
+        }
+        self.historyTableView.reloadData()
     }
     
     // MARK: - IBAction
@@ -62,7 +75,9 @@ class HomeViewController: UIViewController {
         guard let user = DataStore.shared.loggedInUser else {
             return
         }
+        self.indicatorView?.isHidden = false
         UserService.shared.refresh(user: user) { [weak self] (message, result) in
+            self?.indicatorView?.isHidden = true
             guard let user = result else {
                 if let message = message, !message.isEmpty {
                     self?.show(message: message, title: nil, completion: nil)
@@ -75,15 +90,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func tableTypeValueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case TableViewType.summary.rawValue:
-            self.activities = self.learnedActivities
-        case TableViewType.activityLog.rawValue:
-            self.activities = self.loggingActivities
-        default:
-            break
-        }
-        self.historyTableView.reloadData()
+        self.reloadData()
     }
     
 }

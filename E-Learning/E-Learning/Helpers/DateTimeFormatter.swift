@@ -17,10 +17,12 @@ class DateTimeFormatter: DateFormatter {
     }()
     
     func string(from string: String, outputFormat format: String) -> String? {
+        self.timeZone = TimeZone(abbreviation: "UTC")
         guard let date = self.date(from: string) else {
             return nil
         }
         self.dateFormat = format
+        self.timeZone = TimeZone.current
         let output = self.string(from: date)
         self.dateFormat = kDefaultInputDateFormat
         return output

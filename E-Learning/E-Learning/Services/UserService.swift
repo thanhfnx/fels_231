@@ -121,7 +121,7 @@ class UserService: APIService {
     func refresh(user: User, complete: @escaping (String?, User?) -> ()) {
         let params: [String: Any] = ["auth_token": user.auth_token]
         let url = String(format: kShowUserURL, user.id)
-        sendRequest(url: url, method: .post, params: params,
+        sendRequest(url: url, method: .get, params: params,
             success: { (json) in
             guard let userJSON = json["user"] as? [String: Any] else {
                 if let message = json["message"] as? String {
