@@ -579,26 +579,30 @@
                                     <constraint firstAttribute="height" id="qkK-J3-guU"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ao3-bh-HkY">
-                                <rect key="frame" x="16" y="64" width="171.5" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                <state key="normal" title="All">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ao3-bh-HkY" userLabel="Filter">
+                                <rect key="frame" x="16" y="64" width="343" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="tintColor" red="0.40945487491765881" green="0.69050181188596793" blue="0.99693208932876587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Filter">
+                                    <color key="titleColor" red="0.13418737053871155" green="0.53899836540222168" blue="0.99693208932876587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.13418737053871155" green="0.53899836540222168" blue="0.99693208932876587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="filterButtonTapped:" destination="1gt-yF-B11" eventType="touchUpInside" id="cJW-Vn-P9Y"/>
+                                    <action selector="openFilter:" destination="1gt-yF-B11" eventType="touchUpInside" id="piS-Fk-7LB"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ajv-WO-f7h">
-                                <rect key="frame" x="0.0" y="93" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
@@ -606,46 +610,24 @@
                                     <outlet property="delegate" destination="1gt-yF-B11" id="iI3-Cd-GVI"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62d-Vt-qjg">
-                                <rect key="frame" x="187.5" y="64" width="171.5" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                <state key="normal" title="All">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="filterButtonTapped:" destination="1gt-yF-B11" eventType="touchUpInside" id="XZk-uE-phe"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ao3-bh-HkY" secondAttribute="trailing" id="1bc-aC-Ogv"/>
                             <constraint firstItem="LWe-2a-dNl" firstAttribute="top" secondItem="ajv-WO-f7h" secondAttribute="bottom" id="E2w-i9-zUf"/>
                             <constraint firstItem="ao3-bh-HkY" firstAttribute="top" secondItem="bc1-kD-nnY" secondAttribute="bottom" id="JrJ-O4-pdT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bc1-kD-nnY" secondAttribute="trailing" id="KTT-p7-rmB"/>
-                            <constraint firstItem="62d-Vt-qjg" firstAttribute="leading" secondItem="ao3-bh-HkY" secondAttribute="trailing" id="RNb-OI-qSE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="62d-Vt-qjg" secondAttribute="trailing" id="WBd-53-dmJ"/>
                             <constraint firstItem="bc1-kD-nnY" firstAttribute="leading" secondItem="S6m-qz-uwy" secondAttribute="leadingMargin" id="bdD-Pa-CpC"/>
                             <constraint firstItem="ajv-WO-f7h" firstAttribute="leading" secondItem="S6m-qz-uwy" secondAttribute="leading" id="dtV-wM-fEN"/>
                             <constraint firstItem="bc1-kD-nnY" firstAttribute="top" secondItem="mrI-Yv-0x1" secondAttribute="bottom" id="dvL-gA-V3c"/>
-                            <constraint firstItem="62d-Vt-qjg" firstAttribute="top" secondItem="ao3-bh-HkY" secondAttribute="top" id="gCC-gS-g6M"/>
                             <constraint firstAttribute="trailing" secondItem="ajv-WO-f7h" secondAttribute="trailing" id="hfU-0Y-dDH"/>
                             <constraint firstItem="ajv-WO-f7h" firstAttribute="top" secondItem="ao3-bh-HkY" secondAttribute="bottom" id="owu-CT-Upi"/>
                             <constraint firstItem="ao3-bh-HkY" firstAttribute="leading" secondItem="S6m-qz-uwy" secondAttribute="leadingMargin" id="s1z-dS-kgh"/>
-                            <constraint firstItem="62d-Vt-qjg" firstAttribute="width" secondItem="ao3-bh-HkY" secondAttribute="width" id="saG-oi-AGc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Words" id="A9i-CP-sB6"/>
                     <connections>
                         <outlet property="filterPickerView" destination="tc0-Hc-0mM" id="i0Y-rn-qHw"/>
-                        <outlet property="filterRect" destination="62d-Vt-qjg" id="chU-il-VU3"/>
                         <outlet property="filterViewHeight" destination="qkK-J3-guU" id="WQi-dF-4yI"/>
                         <outlet property="wordsListTableView" destination="ajv-WO-f7h" id="8ZI-Bz-1VI"/>
                     </connections>

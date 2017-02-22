@@ -15,16 +15,17 @@ enum WordRequestResult {
 
 class WordService: APIService {
     
+    static let shared = WordService()
     private let session: URLSession = {
         return URLSession(configuration: .default)
     }()
     
-    func fetchWordsList(withInfo info: [String: String],
+    func fetchWordsList(perPage: Int, option: String, categoryId: String,
         completion: @escaping (WordRequestResult) -> Void) {
-        var infoDict = info
-        infoDict["auth_token"] = DataStore.shared.loggedInUser?.auth_token ?? ""
+        let params = ["page": "1", "per_page": "\(perPage)", "category_id": categoryId,
+            "option": option, "auth_token": DataStore.shared.loggedInUser?.auth_token ?? ""]
         guard let request = makeURLRequest(urlString: kGetWordsURL,
-            parameters: infoDict, method: .get) else {
+            parameters: params, method: .get) else {
             completion(.failure(APIServiceError.errorCreateURLRequest))
             return
         }

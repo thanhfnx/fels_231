@@ -15,9 +15,9 @@ class WordsListCell: UITableViewCell {
     var word: Word? {
         didSet {
             if let word = word {
-                wordLabel.text = word.content
+                self.wordLabel.text = word.content
             } else {
-                wordLabel.text = nil
+                self.wordLabel.text = nil
             }
         }
     }
