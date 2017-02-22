@@ -80,7 +80,9 @@ class APIService {
         let dataTask = session.dataTask(with: request as URLRequest)
             { (data, response, error) in
             if let error = error {
-                failure(error.localizedDescription)
+                DispatchQueue.main.async {
+                    failure(error.localizedDescription)
+                }
                 return
             }
             do {

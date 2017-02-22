@@ -21,6 +21,10 @@ class UpdateProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setValues()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self,
             selector: #selector(keyboardWillShow(_:)),
             name: .UIKeyboardWillShow, object: nil)
@@ -29,7 +33,8 @@ class UpdateProfileViewController: UIViewController {
             name: .UIKeyboardWillHide, object: nil)
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -103,7 +108,10 @@ class UpdateProfileViewController: UIViewController {
             }
             if let user = user {
                 DataStore.shared.loggedInUser = user
-                self?.show(message: "UpdateSuccessMessage".localized, title: nil, completion: nil)
+                self?.show(message: "UpdateSuccessMessage".localized, title: nil,
+                    completion: { (action) in
+                    _ = self?.navigationController?.popToRootViewController(animated: true)
+                })
                 self?.resetValues()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: kUserDidUpdateProfileNotification),
                     object: nil)

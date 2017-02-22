@@ -12,7 +12,9 @@ extension UIImageView {
 
     func imageFrom(urlString: String?, defaultImage: UIImage) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
-            self.image = defaultImage
+            DispatchQueue.main.async() {
+                self.image = defaultImage
+            }
             return
         }
         URLSession.shared.dataTask(with: url)
@@ -24,7 +26,9 @@ extension UIImageView {
                 let data = data, error == nil,
                 let image = UIImage(data: data)
             else {
-                self.image = defaultImage
+                DispatchQueue.main.async() {
+                    self.image = defaultImage
+                }
                 return
             }
             DispatchQueue.main.async() {

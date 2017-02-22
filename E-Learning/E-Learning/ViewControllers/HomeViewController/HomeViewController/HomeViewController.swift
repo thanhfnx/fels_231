@@ -32,6 +32,8 @@ class HomeViewController: UIViewController {
         self.setValues()
         NotificationCenter.default.addObserver(self, selector: #selector(setValues),
             name: NSNotification.Name.init(rawValue: kUserDidUpdateProfileNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshButtonTapped(_:)),
+            name: NSNotification.Name.init(rawValue: kUserDidLearnMoreWord), object: nil)
     }
     
     deinit {

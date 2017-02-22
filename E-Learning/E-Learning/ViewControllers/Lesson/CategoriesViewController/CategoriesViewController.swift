@@ -93,7 +93,7 @@ class CategoriesViewController: UITableViewController {
                     self?.performSegue(withIdentifier: "ShowLesson",
                         sender: lesson)
                 case let .failure(error):
-                    print("Error create lesson: \(error)")
+                    self?.show(message: error.localizedDescription, title: nil, completion: nil)
                 }
             }
         }
@@ -139,7 +139,7 @@ class CategoriesViewController: UITableViewController {
                             object: nil)
                     }
                 case let .failure(error):
-                    print("Error update lesson: \(error)")
+                    self?.show(message: error.localizedDescription, title: nil, completion: nil)
                 }
             })
         }
@@ -157,7 +157,7 @@ class CategoriesViewController: UITableViewController {
                 self?.categories = categories
             case let .failure(error):
                 self?.categories.removeAll()
-                print("Error fetching categories: \(error)")
+                self?.show(message: error.localizedDescription, title: nil, completion: nil)
             }
             self?.tableView.reloadData()
             self?.tableView.refreshControl?.endRefreshing()
